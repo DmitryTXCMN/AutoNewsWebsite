@@ -46,7 +46,7 @@ namespace AutoNewsWebsite.DAL
 
             Engine.Insert(
                 $"INSERT INTO [{typeof(T).Name}] ({String.Join(", ", headers)}) " +
-                          $"VALUES ('{String.Join("', \'", values)}')"
+                $"VALUES ('{String.Join("', \'", values)}')"
                 );
         }
 

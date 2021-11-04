@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using AutoNewsWebsite.DAL;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MedicalVideoMultitier.API.Controllers
+namespace AutoNewsWebsite.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

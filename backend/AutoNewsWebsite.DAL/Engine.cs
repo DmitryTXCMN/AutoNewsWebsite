@@ -36,16 +36,16 @@ namespace AutoNewsWebsite.DAL
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 SqlDataReader reader = command.ExecuteReader();
-                
+
                 if (reader.HasRows)
                 {
                     result.ColumnsCount = reader.FieldCount;
-                    
+
                     for (int i = 0; i < result.ColumnsCount; i++)
                     {
                         result.Header.Add(reader.GetName(i));
                     }
-                    
+
                     while (reader.Read())
                     {
                         var tempRow = new List<object>();
@@ -53,9 +53,11 @@ namespace AutoNewsWebsite.DAL
                         {
                             tempRow.Add(reader.GetValue(i));
                         }
+
                         result.Data.Add(tempRow);
                     }
                 }
+
                 reader.Close();
             }
 
