@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace backend.Database
+namespace AutoNewsWebsite.DAL
 {
     public static class Handler
     {
-        public static T GetFromIndex<T>(int index) where T : IDatabase, new()
+        public static T GetFromIndex<T>(Guid index) where T : new()
         {
-            var result = Engine.Select($"SELECT * FROM {typeof(T).Name} WHERE Id = {index}");
+            var result = Engine.Select($"SELECT * FROM {typeof(T).Name} WHERE Id = '{index}'");
             return CreateObjectFromIndex<T>(result, 0);
         }
 
-        private static T CreateObjectFromIndex<T>(SelectResult result, int index) where T : IDatabase, new()
+        private static T CreateObjectFromIndex<T>(SelectResult result, int index) where T : new()
         {
             var item = new T();
             for (int i = 0; i < result.ColumnsCount; i++)
@@ -22,7 +22,7 @@ namespace backend.Database
             return item;
         }
 
-        public static List<T> GetAll<T>() where T : IDatabase, new()
+        public static List<T> GetAll<T>() where T : new()
         {
             var result = Engine.Select($"SELECT * FROM {typeof(T).Name}");
             var list = new List<T>();
@@ -39,34 +39,33 @@ namespace backend.Database
             return typeof(T).GetProperty(header)?.GetValue(item);
         }
         
-        public static void Insert<T>(this T item) where T : IDatabase
+        public static void Insert<T>(this T item)
         {
             var headers = typeof(T).GetProperties().Select(i => i.Name).ToList();
             var values = headers.Select(value => GetValueFromProperty(value, item)).ToList();
 
             Engine.Insert(
                 $"INSERT INTO [{typeof(T).Name}] ({String.Join(", ", headers)}) " +
-                $"VALUES ('{String.Join("', \'", values)}')"
+                          $"VALUES ('{String.Join("', \'", values)}')"
                 );
         }
 
-        public static void Delete<T>(this T item) where T : IDatabase
+        public static void Delete<T>(Guid id)
         {
             Engine.Delete($"DELETE FROM [{typeof(T).Name}] " +
-                          $"WHERE Id='{GetValueFromProperty("Id", item)}'");
+                          $"WHERE Id='{id}'");
         }
 
-        public static void Update<T>(this T item) where T : IDatabase
+        public static void Update<T>(Guid id, T item)
         {
-            
             var header = typeof(T).GetProperties().Select(i => i.Name).ToList(); //получить список параметров
             var values = 
                 header.Select(value => $"{value}=\'{GetValueFromProperty(value, item)}\'").ToList(); //получить список значений
-
+            
             Engine.Update(
                 $"UPDATE [{typeof(T).Name}] " +
                           $"SET {String.Join(", ", values)} " +
-                          $"WHERE Id={GetValueFromProperty("Id", item)}"
+                          $"WHERE Id='{GetValueFromProperty("Id", item)}'"
                 );
         }
     }

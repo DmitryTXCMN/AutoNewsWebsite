@@ -2,27 +2,11 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace backend.Database
+namespace AutoNewsWebsite.DAL
 {
-    public class SelectResult
-    { 
-        
-        public int ColumnsCount { get; set; }
-        public int RowCount => Data.Count;
-        public readonly List<List<object>> Data;
-        public readonly List<string> Header;
-
-        public SelectResult(int rowCount, List<List<object>> list, List<string> header)
-        {
-            ColumnsCount = rowCount;
-            Data = list;
-            Header = header;
-        }
-    }
-    
     public static class Engine
     {
-        private static string connectionString = "Server=localhost;Database=DownChecker;Trusted_Connection=True;";
+        private static string connectionString = "Server=localhost;Database=AutoNewsWebsite;Trusted_Connection=True;";
 
         public static void CheckConnection()
         {
