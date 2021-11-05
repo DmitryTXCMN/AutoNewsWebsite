@@ -1,4 +1,5 @@
-﻿using AutoNewsWebsite.BLL.Models;
+﻿using AutoNewsWebsite.BLL;
+using AutoNewsWebsite.BLL.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoNewsWebsite.API.Controllers
@@ -9,7 +10,10 @@ namespace AutoNewsWebsite.API.Controllers
         [HttpPost]
         public ActionResult Register([FromForm] User user)
         {
-            return Ok(user.ToString());
+            if (UserLogic.IsExist(user))
+                return Ok("User is exist");
+            UserLogic.Create(user);
+            return Ok("User created");
         }
     }
 }

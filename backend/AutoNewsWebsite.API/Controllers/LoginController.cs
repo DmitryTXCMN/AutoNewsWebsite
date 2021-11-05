@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoNewsWebsite.BLL;
 using AutoNewsWebsite.BLL.Models;
 using AutoNewsWebsite.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,19 @@ namespace AutoNewsWebsite.API.Controllers
         [HttpPost]
         public ActionResult Login([FromForm] User user)
         {
-            return Ok(user.ToString());
+            if (UserLogic.IsExist(user))
+            {
+                if (UserLogic.IsCorrectInfo(user))
+                {
+                    return Ok("He He :)");
+                }
+
+                return Ok("Not he he 😠");
+            }
+            else
+            {
+                return Ok("User is not exist");
+            }
         }
     }
 }
