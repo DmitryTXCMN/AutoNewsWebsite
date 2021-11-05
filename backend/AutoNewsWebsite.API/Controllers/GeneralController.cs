@@ -15,9 +15,11 @@ namespace AutoNewsWebsite.API.Controllers
         [HttpGet("{id}")]
         public T Get(Guid id) => Handler.GetFromIndex<T>(id);
 
+        [HttpGet("(filter)")]
+        public List<T> Filter([FromQuery]string filter) => Handler.GetWithFilter<T>(filter);
+
         [HttpPost]
         public void Create([FromBody] T item) => item.Insert();
-
 
         [HttpDelete("{id}")]
         public void Delete(Guid id) => Handler.Delete<T>(id);

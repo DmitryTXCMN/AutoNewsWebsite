@@ -34,6 +34,19 @@ namespace AutoNewsWebsite.DAL
             return list;
         }
 
+        public static List<T> GetWithFilter<T>(string filter) where T : new()
+        {
+            var result = Engine.Select($"SELECT * FROM {typeof(T).Name}");
+            var list = new List<T>();
+            for (int i = 0; i < result.RowCount; i++)
+            {
+                list.Add(CreateObjectFromIndex<T>(result, i));
+            }
+            Console.WriteLine(filter);
+
+            return list;
+        }
+
         private static object GetValueFromProperty<T>(string header, T item)
         {
             return typeof(T).GetProperty(header)?.GetValue(item);
