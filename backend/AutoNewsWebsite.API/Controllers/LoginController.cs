@@ -9,6 +9,11 @@ namespace AutoNewsWebsite.API.Controllers
     [ApiController, Route("[controller]")]
     public class LoginController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
+        
         [HttpPost]
         public ActionResult Login([FromForm] User user)
         {
