@@ -7,7 +7,7 @@ namespace AutoNewsWebsite.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class GeneralController<T> : Controller where T : new()
+    public class DbBaseController<T> : Controller where T : new()
     {
         [HttpGet]
         public List<T> GetAll() => Handler.GetAll<T>();

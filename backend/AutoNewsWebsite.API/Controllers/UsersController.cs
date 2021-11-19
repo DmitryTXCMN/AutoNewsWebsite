@@ -5,6 +5,6 @@ namespace AutoNewsWebsite.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : GeneralController<Users>
+    public class UsersController : DbBaseController<Users>
     {}
 }
