@@ -1,4 +1,4 @@
-﻿namespace AutoNewsWebsite.BLL.Models
+﻿namespace AutoNewsWebsite.BLL.Entities
 {
     public class User
     {

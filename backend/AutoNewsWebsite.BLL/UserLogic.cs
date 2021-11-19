@@ -1,5 +1,5 @@
 ﻿using System;
-using AutoNewsWebsite.BLL.Models;
+using AutoNewsWebsite.BLL.Entities;
 using AutoNewsWebsite.DAL;
 using AutoNewsWebsite.DAL.Models;
 

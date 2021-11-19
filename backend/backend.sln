@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoNewsWebsite.DAL", "Auto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoNewsWebsite.BLL", "AutoNewsWebsite.BLL\AutoNewsWebsite.BLL.csproj", "{79A035F1-95EF-492B-B8A1-D967A5D95FBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoNewsWebsite.API", "AutoNewsWebsite.API\AutoNewsWebsite.API.csproj", "{AE1A5371-0561-4704-BE2B-32DA762D370B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoNewsWebsite.API", "AutoNewsWebsite.API\AutoNewsWebsite.API.csproj", "{486619B1-81E7-43E6-BBCF-0755248CDB47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{79A035F1-95EF-492B-B8A1-D967A5D95FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79A035F1-95EF-492B-B8A1-D967A5D95FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79A035F1-95EF-492B-B8A1-D967A5D95FBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AE1A5371-0561-4704-BE2B-32DA762D370B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE1A5371-0561-4704-BE2B-32DA762D370B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE1A5371-0561-4704-BE2B-32DA762D370B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE1A5371-0561-4704-BE2B-32DA762D370B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{486619B1-81E7-43E6-BBCF-0755248CDB47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{486619B1-81E7-43E6-BBCF-0755248CDB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{486619B1-81E7-43E6-BBCF-0755248CDB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{486619B1-81E7-43E6-BBCF-0755248CDB47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
