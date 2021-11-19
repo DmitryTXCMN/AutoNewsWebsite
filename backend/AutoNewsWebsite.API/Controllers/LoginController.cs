@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AutoNewsWebsite.API.Controllers
 {
-    [ApiController, Route("[controller]")]
+    // [ApiController, Route("[controller]")]
     public class LoginController : Controller
     {
         public IActionResult Index()
@@ -15,8 +15,9 @@ namespace AutoNewsWebsite.API.Controllers
         }
         
         [HttpPost]
-        public ActionResult Login([FromForm] User user)
+        public ActionResult Login(string login, string password)
         {
+            var user = new User() { Login = login, Password = password};
             if (UserLogic.IsExist(user))
             {
                 if (UserLogic.IsCorrectInfo(user))

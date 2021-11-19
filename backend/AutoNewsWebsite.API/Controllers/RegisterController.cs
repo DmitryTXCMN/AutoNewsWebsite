@@ -4,9 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AutoNewsWebsite.API.Controllers
 {
-    [ApiController, Route("[controller]")]
+    // [ApiController, Route("[controller]")]
     public class RegisterController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
+        
         [HttpPost]
         public ActionResult Register([FromForm] User user)
         {
