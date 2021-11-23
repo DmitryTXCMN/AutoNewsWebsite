@@ -5,11 +5,11 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace AutoNewsWebsite.BLL
+namespace AutoNewsWebsite.API.Services
 {
     public class JwtLogic
     {
-        public string GenerateJwtToken(int accountId)
+        public static string GenerateJwtToken(int accountId)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes("[SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING]");
@@ -23,7 +23,7 @@ namespace AutoNewsWebsite.BLL
             return tokenHandler.WriteToken(token);
         }
         
-        public int? ValidateJwtToken(string token)
+        public static int? ValidateJwtToken(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes("[SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING]");
