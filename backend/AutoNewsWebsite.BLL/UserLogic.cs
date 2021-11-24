@@ -2,6 +2,7 @@
 using AutoNewsWebsite.BLL.Entities;
 using AutoNewsWebsite.DAL;
 using AutoNewsWebsite.DAL.Models;
+using User = AutoNewsWebsite.DAL.Models.User;
 
 namespace AutoNewsWebsite.BLL
 {
@@ -21,7 +22,7 @@ namespace AutoNewsWebsite.BLL
         
         public static void Create(User user)
         {
-            var dtoUser = new Users() {Id = new Guid(user.Login), Login = user.Login, Password = user.Password};
+            var dtoUser = new User() {Id = new Guid(user.Login), Login = user.Login, Password = user.Password};
             dtoUser.Insert();
         }
     }
