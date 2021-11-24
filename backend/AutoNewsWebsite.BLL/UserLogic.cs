@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using AutoNewsWebsite.BLL.Entities;
 using AutoNewsWebsite.DAL;
 using AutoNewsWebsite.DAL.Models;
+using LinqToDB;
 using User = AutoNewsWebsite.DAL.Models.User;
 
 namespace AutoNewsWebsite.BLL
@@ -10,20 +12,27 @@ namespace AutoNewsWebsite.BLL
     {
         public static bool IsExist(User user)
         {
-            var temp = Engine.Select($"SELECT * FROM Users WHERE Login = {user.Login}");
-            return temp.ColumnsCount != 0;
+            using var db = new DbANW();
+            var query = from p in db.Users
+                where p.Login == user.Login
+                select p;
+            return query.Any();
         }
 
         public static bool IsCorrectInfo(User user)
         {
-            var temp = Engine.Select($"SELECT * FROM Users WHERE Login = {user.Login} and Password = {user.Password}");
-            return temp.ColumnsCount != 0;
+            using var db = new DbANW();
+            var query = from p in db.Users
+                where p.Login == user.Login &&
+                      p.Password == user.Password
+                select p;
+            return query.Any();
         }
         
         public static void Create(User user)
         {
-            var dtoUser = new User() {Id = new Guid(user.Login), Login = user.Login, Password = user.Password};
-            dtoUser.Insert();
+            using var db = new DbANW();
+            db.Insert(user);
         }
     }
 }

@@ -11,6 +11,6 @@ namespace AutoNewsWebsite.DAL.Models
         [Column, NotNull]
         public string Login { get; set; }
         [Column, NotNull]
-        public int Password { get; set; }
+        public string Password { get; set; }
     }
 }
