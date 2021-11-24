@@ -1,5 +1,7 @@
-﻿using AutoNewsWebsite.BLL;
+﻿using System;
+using AutoNewsWebsite.BLL;
 using AutoNewsWebsite.BLL.Entities;
+using AutoNewsWebsite.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoNewsWebsite.API.Controllers
@@ -13,8 +15,9 @@ namespace AutoNewsWebsite.API.Controllers
         }
         
         [HttpPost]
-        public ActionResult Register([FromForm] User user)
+        public ActionResult Register(string login, string password)
         {
+            var user = new UserDTO() {Id = Guid.Empty, Login = login, Password = password};
             if (UserLogic.IsExist(user))
                 return Ok("User is exist");
             UserLogic.Create(user);

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoNewsWebsite.API.Middleware;
 using AutoNewsWebsite.API.Services;
+using AutoNewsWebsite.DAL;
+using LinqToDB.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,8 @@ namespace AutoNewsWebsite.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            DataConnection.DefaultSettings = new MySettings(); //todo: Почему это сработало
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -58,7 +58,7 @@ namespace AutoNewsWebsite.API.Middleware
                 // attach account to context on successful jwt validation
                 //context.Items["Account"] = await dataContext.Accounts.FindAsync(accountId);
                 //context.Items["Account"] = Handler.GetFromIndex<Users>(accountId);
-                context.Items["Account"] = new User() {Id = Guid.NewGuid(), Login = "login", Password = "Pass"};
+                context.Items["Account"] = new UserDTO() {Id = Guid.NewGuid(), Login = "login", Password = "Pass"};
             }
             catch 
             {

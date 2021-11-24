@@ -17,7 +17,7 @@ namespace AutoNewsWebsite.API.Controllers
         [HttpPost]
         public ActionResult Login(string login, string password)
         {
-            var user = new User() { Login = login, Password = password};
+            var user = new UserDTO() {Id = Guid.Empty ,Login = login, Password = password};
             if (UserLogic.IsExist(user))
             {
                 if (UserLogic.IsCorrectInfo(user))

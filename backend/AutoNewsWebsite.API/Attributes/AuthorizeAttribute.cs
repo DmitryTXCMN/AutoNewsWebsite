@@ -1,5 +1,5 @@
 ﻿using System;
-using AutoNewsWebsite.DAL.Models;
+using AutoNewsWebsite.BLL.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -11,7 +11,7 @@ namespace AutoNewsWebsite.API.Attributes
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var account = (Users)context.HttpContext.Items["Account"];
+            var account = (User)context.HttpContext.Items["Account"];
             if (account == null)
             {
                 // not logged in

@@ -7,6 +7,6 @@ namespace AutoNewsWebsite.DAL
     {
         public DbANW() : base("AutoNewsWebsite") {}
 
-        public ITable<User> Users => GetTable<User>();
+        public ITable<UserDTO> Users => GetTable<UserDTO>();
     }
 }
