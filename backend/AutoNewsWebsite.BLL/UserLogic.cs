@@ -11,7 +11,7 @@ namespace AutoNewsWebsite.BLL
     {
         public static bool IsExist(UserDTO userDto)
         {
-            using var db = new DbANW();
+            using var db = new DbRepository();
             var query = from p in db.Users
                 where p.Login == userDto.Login
                 select p;
@@ -20,7 +20,7 @@ namespace AutoNewsWebsite.BLL
 
         public static bool IsCorrectInfo(UserDTO userDto)
         {
-            using var db = new DbANW();
+            using var db = new DbRepository();
             var query = from p in db.Users
                 where p.Login == userDto.Login &&
                       p.Password == userDto.Password
@@ -30,7 +30,7 @@ namespace AutoNewsWebsite.BLL
         
         public static void Create(UserDTO userDto)
         {
-            using var db = new DbANW();
+            using var db = new DbRepository();
             db.Insert(userDto);
         }
     }
