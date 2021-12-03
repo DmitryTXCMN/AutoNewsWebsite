@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoNewsWebsite.API.Models;
 using AutoNewsWebsite.API.Services;
 using AutoNewsWebsite.BLL;
 using AutoNewsWebsite.BLL.Entities;
@@ -27,11 +28,11 @@ namespace AutoNewsWebsite.API.Controllers
         
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult Login(string login, string password)
+        public IActionResult Login([FromBody]LoginModel loginModel)
         {
             IActionResult response = Unauthorized();
 
-            var user = new UserDTO() {Id = Guid.Empty ,Login = login, Password = password};
+            var user = new UserDTO() {Id = Guid.Empty ,Login = loginModel.Login, Password = loginModel.Password};
             if (UserLogic.IsExist(user))
             {
                 if (UserLogic.IsCorrectInfo(user))
@@ -41,7 +42,7 @@ namespace AutoNewsWebsite.API.Controllers
                 }
             }
 
-            Console.WriteLine($"{login}: {password}");
+            Console.WriteLine($"{loginModel.Login} {loginModel.Password}");
             return response;
         }
     }
