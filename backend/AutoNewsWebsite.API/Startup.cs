@@ -53,8 +53,10 @@ namespace AutoNewsWebsite.API
             
             app.UseRouting();
             
-            app.UseAuthorization();
             app.UseMiddleware<JwtMiddleware>();
+            
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

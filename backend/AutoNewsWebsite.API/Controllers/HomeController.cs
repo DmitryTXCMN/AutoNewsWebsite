@@ -32,7 +32,6 @@ namespace AutoNewsWebsite.API.Controllers
         {
             Response.Headers.Add("Authorization","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2Mzc2OTU2NTMsImV4cCI6MTYzODMwMDQ1MywiaWF0IjoxNjM3Njk1NjUzfQ.cDi5Xm9L0ADohHDg4GtsGaOoeroEK91UVCmyPBRZs-4");
             //Response.WriteAsync(JwtLogic.GenerateJwtToken(1));
-            
         }
 
         public IActionResult Privacy()
