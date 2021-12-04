@@ -13,24 +13,23 @@ namespace AutoNewsWebsite.API.Controllers
     // [ApiController, Route("[controller]")]
     public class LoginController : Controller
     {
-        
         private IConfiguration _config;
         private IHashable _hash;
-    
-        public LoginController(IConfiguration config, IHashable hash)    
-        {    
+
+        public LoginController(IConfiguration config, IHashable hash)
+        {
             _config = config;
             _hash = hash;
         }
-        
+
         public IActionResult Index()
         {
             return View();
         }
-        
+
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult Login([FromBody]LoginModel loginModel)
+        public IActionResult Login([FromBody] LoginModel loginModel)
         {
             IActionResult response = Unauthorized();
 
@@ -40,13 +39,13 @@ namespace AutoNewsWebsite.API.Controllers
                 Login = loginModel.Login,
                 Password = _hash.Create(loginModel.Password)
             };
-            
+
             if (UserLogic.IsExist(user))
             {
                 if (UserLogic.IsCorrectInfo(user))
                 {
-                    var tokenString = JwtLogic.GenerateJSONWebToken(user, _config); 
-                    response = Ok(new { token = tokenString });
+                    var tokenString = JwtLogic.GenerateJSONWebToken(user, _config);
+                    response = Ok(new {token = tokenString});
                 }
             }
 

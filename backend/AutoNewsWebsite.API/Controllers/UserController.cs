@@ -13,7 +13,7 @@ namespace AutoNewsWebsite.API.Controllers
         {
             return Ok(UserLogic.Get(id));
         }
-        
+
         [HttpPost]
         public IActionResult SetInfo(Guid id)
         {

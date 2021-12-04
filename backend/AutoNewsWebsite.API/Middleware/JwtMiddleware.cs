@@ -15,6 +15,7 @@ namespace AutoNewsWebsite.API.Middleware
     public class JwtMiddleware
     {
         private readonly RequestDelegate _next;
+
         //private readonly AppSettings _appSettings;
         private readonly string _token;
 
@@ -29,8 +30,8 @@ namespace AutoNewsWebsite.API.Middleware
         {
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
-             if (token != null)
-                 await AttachAccountToContext(context);
+            if (token != null)
+                await AttachAccountToContext(context);
 
             await _next(context);
         }
@@ -51,7 +52,7 @@ namespace AutoNewsWebsite.API.Middleware
                     ClockSkew = TimeSpan.Zero
                 }, out SecurityToken validatedToken);
 
-                var jwtToken = (JwtSecurityToken)validatedToken;
+                var jwtToken = (JwtSecurityToken) validatedToken;
                 //var accountId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
                 var accountId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
@@ -60,7 +61,7 @@ namespace AutoNewsWebsite.API.Middleware
                 //context.Items["Account"] = Handler.GetFromIndex<Users>(accountId);
                 context.Items["Account"] = new UserDTO() {Id = Guid.NewGuid(), Login = "login", Password = "Pass"};
             }
-            catch 
+            catch
             {
                 // do nothing if jwt validation fails
                 // account is not attached to context so request won't have access to secure routes

@@ -7,7 +7,7 @@ namespace AutoNewsWebsite.API.Services
         public string Create(string input)
         {
             using System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
-            var inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            var inputBytes = Encoding.ASCII.GetBytes(input);
             var hashBytes = md5.ComputeHash(inputBytes);
 
             // Convert the byte array to hexadecimal string
@@ -16,6 +16,7 @@ namespace AutoNewsWebsite.API.Services
             {
                 sb.Append(t.ToString("X2"));
             }
+
             return sb.ToString();
         }
     }
