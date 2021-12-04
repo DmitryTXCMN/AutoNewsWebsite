@@ -14,11 +14,13 @@ namespace AutoNewsWebsite.API.Controllers
     public class LoginController : Controller
     {
         
-        private IConfiguration _config;    
+        private IConfiguration _config;
+        private IHashable _hash;
     
-        public LoginController(IConfiguration config)    
+        public LoginController(IConfiguration config, IHashable hash)    
         {    
-            _config = config;    
+            _config = config;
+            _hash = hash;
         }
         
         public IActionResult Index()
@@ -32,7 +34,13 @@ namespace AutoNewsWebsite.API.Controllers
         {
             IActionResult response = Unauthorized();
 
-            var user = new UserDTO() {Id = Guid.Empty ,Login = loginModel.Login, Password = loginModel.Password};
+            var user = new UserDTO()
+            {
+                Id = Guid.Empty,
+                Login = loginModel.Login,
+                Password = _hash.Create(loginModel.Password)
+            };
+            
             if (UserLogic.IsExist(user))
             {
                 if (UserLogic.IsCorrectInfo(user))
