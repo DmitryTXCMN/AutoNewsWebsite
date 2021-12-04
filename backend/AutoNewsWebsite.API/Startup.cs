@@ -7,6 +7,7 @@ using AutoMapper;
 using AutoNewsWebsite.API.Middleware;
 using AutoNewsWebsite.API.Models;
 using AutoNewsWebsite.API.Services;
+using AutoNewsWebsite.BLL;
 using AutoNewsWebsite.DAL;
 using AutoNewsWebsite.DAL.Models;
 using LinqToDB.Data;
@@ -57,6 +58,10 @@ namespace AutoNewsWebsite.API
             var configuration = new MapperConfiguration(cfg => 
             {
                 cfg.CreateMap<CommentModel, Comment>();
+                cfg.CreateMap<AutomobileModel, Automobile>();
+                cfg.CreateMap<LoginModel, UserDTO>();
+                cfg.CreateMap<NewsModel, News>();
+                cfg.CreateMap<UserInfoModel, UserInfo>();
             });
             var mapper = configuration.CreateMapper();
             services.AddSingleton(mapper);
