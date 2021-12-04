@@ -3,7 +3,7 @@ using LinqToDB.Mapping;
 
 namespace AutoNewsWebsite.DAL.Models
 {
-    [Table(Name = "Users")]
+    [Table(Name = "Automobile")]
     public class Automobile
     {
         [Column(IsPrimaryKey = true)]

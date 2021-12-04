@@ -3,7 +3,7 @@ using LinqToDB.Mapping;
 
 namespace AutoNewsWebsite.DAL.Models
 {
-    [Table(Name = "Users")]
+    [Table(Name = "Comment")]
     public class Comment
     {
         [Column(IsPrimaryKey = true)]
@@ -18,5 +18,7 @@ namespace AutoNewsWebsite.DAL.Models
         public int DislikeCount { get; set; }
         [Column, NotNull]
         public DateTime Date { get; set; }
+        [Column, NotNull]
+        public Guid NewsId { get; set; }
     }
 }

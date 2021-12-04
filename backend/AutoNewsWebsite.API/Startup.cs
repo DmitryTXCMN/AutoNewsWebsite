@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using AutoNewsWebsite.API.Middleware;
+using AutoNewsWebsite.API.Models;
 using AutoNewsWebsite.API.Services;
 using AutoNewsWebsite.DAL;
+using AutoNewsWebsite.DAL.Models;
 using LinqToDB.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -49,6 +52,14 @@ namespace AutoNewsWebsite.API
             services.AddControllersWithViews();
             services.AddTransient<JwtLogic>();
             services.AddSingleton<IHashable, MD5Hash>();
+            
+            //automapper
+            var configuration = new MapperConfiguration(cfg => 
+            {
+                cfg.CreateMap<CommentModel, Comment>();
+            });
+            var mapper = configuration.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
