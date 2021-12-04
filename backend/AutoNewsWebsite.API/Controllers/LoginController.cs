@@ -2,7 +2,6 @@
 using AutoNewsWebsite.API.Models;
 using AutoNewsWebsite.API.Services;
 using AutoNewsWebsite.BLL;
-using AutoNewsWebsite.BLL.Entities;
 using AutoNewsWebsite.DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

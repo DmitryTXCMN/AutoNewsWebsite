@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using AutoNewsWebsite.BLL.Entities;
 using AutoNewsWebsite.DAL;
 using AutoNewsWebsite.DAL.Models;
 using LinqToDB;
