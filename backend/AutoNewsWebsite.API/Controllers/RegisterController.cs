@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Security.Cryptography;
+using System.Text;
+using AutoNewsWebsite.API.Models;
 using AutoNewsWebsite.BLL;
 using AutoNewsWebsite.BLL.Entities;
 using AutoNewsWebsite.DAL.Models;
@@ -15,9 +18,20 @@ namespace AutoNewsWebsite.API.Controllers
         }
         
         [HttpPost]
-        public ActionResult Register(string login, string password)
+        public ActionResult Register([FromBody] LoginModel loginModel)
         {
-            var user = new UserDTO() {Id = Guid.Empty, Login = login, Password = password};
+            Guid result = Guid.Empty;
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] hash = md5.ComputeHash(Encoding.Default.GetBytes(loginModel.Login));
+                result = new Guid(hash);
+            }
+            var user = new UserDTO() {
+                Id = result, 
+                Login = loginModel.Login, 
+                Password = loginModel.Password
+            };
+            
             if (UserLogic.IsExist(user))
                 return Ok("User is exist");
             UserLogic.Create(user);

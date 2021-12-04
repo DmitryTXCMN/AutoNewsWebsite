@@ -33,5 +33,14 @@ namespace AutoNewsWebsite.BLL
             using var db = new DbRepository();
             db.Insert(userDto);
         }
+
+        public static UserDTO Get(Guid id)
+        {
+            using var db = new DbRepository();
+            var query = from p in db.Users
+                where p.Id == id
+                select p;
+            return query.First();
+        }
     }
 }
