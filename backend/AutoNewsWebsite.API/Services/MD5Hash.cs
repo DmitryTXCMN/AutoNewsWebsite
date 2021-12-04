@@ -6,7 +6,7 @@ namespace AutoNewsWebsite.API.Services
     {
         public string Create(string input)
         {
-            using System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
+            using var md5 = System.Security.Cryptography.MD5.Create();
             var inputBytes = Encoding.ASCII.GetBytes(input);
             var hashBytes = md5.ComputeHash(inputBytes);
 
