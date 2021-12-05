@@ -41,5 +41,14 @@ namespace AutoNewsWebsite.BLL
                 select p;
             return query.First();
         }
+
+        public static void Update(UserDTO user)
+        {
+            using var db = new DbRepository();
+            db.Users
+                .Where(u => u.Id == user.Id)
+                .Set(u => u.Password, user.Password)
+                .Update();
+        }
     }
 }

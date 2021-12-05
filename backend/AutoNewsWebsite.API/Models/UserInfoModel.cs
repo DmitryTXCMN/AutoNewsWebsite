@@ -10,7 +10,7 @@ namespace AutoNewsWebsite.API.Models
         
         public string Email { get; set; }
         
-        public Binary Image { get; set; }
+        public string Image { get; set; }
         
         public string Status { get; set; }
         

@@ -1,4 +1,6 @@
-﻿namespace AutoNewsWebsite.API.Models
+﻿using System;
+
+namespace AutoNewsWebsite.API.Models
 {
     public class AutomobileModel
     {
@@ -8,6 +10,6 @@
         
         public string Engine { get; set; }
         
-        public string Year { get; set; }
+        public DateTime Year { get; set; }
     }
 }

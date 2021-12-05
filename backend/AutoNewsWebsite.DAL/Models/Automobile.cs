@@ -8,13 +8,13 @@ namespace AutoNewsWebsite.DAL.Models
     {
         [Column(IsPrimaryKey = true)]
         public Guid Id { get; set; }
-        [Column (Name = "Model Name")]
+        [Column]
         public string ModelName { get; set; }
-        [Column (Name = "Model Variant")]
+        [Column]
         public string ModelVariant { get; set; }
         [Column]
         public string Engine { get; set; }
         [Column, NotNull]
-        public string Year { get; set; }
+        public DateTime Year { get; set; }
     }
 }

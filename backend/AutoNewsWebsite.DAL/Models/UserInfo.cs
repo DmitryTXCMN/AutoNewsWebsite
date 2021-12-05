@@ -14,7 +14,7 @@ namespace AutoNewsWebsite.DAL.Models
         [Column]
         public string Email { get; set; }
         [Column]
-        public Binary Image { get; set; }
+        public string Image { get; set; }
         [Column]
         public string Status { get; set; }
         [Column, NotNull]
