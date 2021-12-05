@@ -9,23 +9,17 @@ using Microsoft.Extensions.Configuration;
 
 namespace AutoNewsWebsite.API.Controllers
 {
-    // [ApiController, Route("[controller]")]
-    public class LoginController : Controller
+    public class AuthController : Controller
     {
-        private IConfiguration _config;
         private IHashable _hash;
+        private IConfiguration _config;
 
-        public LoginController(IConfiguration config, IHashable hash)
+        public AuthController(IConfiguration config,IHashable hash)
         {
-            _config = config;
             _hash = hash;
+            _config = config;
         }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
+        
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Login([FromBody] LoginModel loginModel)
@@ -50,6 +44,24 @@ namespace AutoNewsWebsite.API.Controllers
 
             Console.WriteLine($"{loginModel.Login} {loginModel.Password}");
             return response;
+        }
+        
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Register([FromBody] LoginModel loginModel)
+        {
+            var uniqueGuid = new Guid(_hash.Create(loginModel.Login));
+            var user = new UserDTO()
+            {
+                Id = uniqueGuid,
+                Login = loginModel.Login,
+                Password = _hash.Create(loginModel.Password)
+            };
+
+            if (UserLogic.IsExist(user))
+                return Ok("User is exist");
+            UserLogic.Create(user);
+            return Ok("User created");
         }
     }
 }
