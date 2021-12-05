@@ -8,7 +8,7 @@ namespace AutoNewsWebsite.BLL
 {
     public static class NewsLogic
     {
-        public static News GetNewsById(Guid id)
+        public static News GetById(Guid id)
         {
             using var db = new DbRepository();
             var query = from p in db.News
