@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using AutoNewsWebsite.API.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AutoNewsWebsite.API.Models;
+using AutoNewsWebsite.API.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace AutoNewsWebsite.API.Controllers
 {

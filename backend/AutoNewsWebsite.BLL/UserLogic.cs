@@ -1,28 +1,54 @@
 ﻿using System;
-using AutoNewsWebsite.BLL.Entities;
+using System.Linq;
 using AutoNewsWebsite.DAL;
 using AutoNewsWebsite.DAL.Models;
+using LinqToDB;
 
 namespace AutoNewsWebsite.BLL
 {
     public static class UserLogic
     {
-        public static bool IsExist(User user)
+        public static bool IsExist(UserDTO userDto)
         {
-            var temp = Engine.Select($"SELECT * FROM Users WHERE Login = {user.Login}");
-            return temp.ColumnsCount != 0;
+            using var db = new DbRepository();
+            var query = from p in db.Users
+                where p.Login == userDto.Login
+                select p;
+            return query.Any();
         }
 
-        public static bool IsCorrectInfo(User user)
+        public static bool IsCorrectInfo(UserDTO userDto)
         {
-            var temp = Engine.Select($"SELECT * FROM Users WHERE Login = {user.Login} and Password = {user.Password}");
-            return temp.ColumnsCount != 0;
+            using var db = new DbRepository();
+            var query = from p in db.Users
+                where p.Login == userDto.Login &&
+                      p.Password == userDto.Password
+                select p;
+            return query.Any();
         }
         
-        public static void Create(User user)
+        public static void Create(UserDTO userDto)
         {
-            var dtoUser = new Users() {Id = new Guid(user.Login), Login = user.Login, Password = user.Password};
-            dtoUser.Insert();
+            using var db = new DbRepository();
+            db.Insert(userDto);
+        }
+
+        public static UserDTO Get(Guid id)
+        {
+            using var db = new DbRepository();
+            var query = from p in db.Users
+                where p.Id == id
+                select p;
+            return query.First();
+        }
+
+        public static void Update(UserDTO user)
+        {
+            using var db = new DbRepository();
+            db.Users
+                .Where(u => u.Id == user.Id)
+                .Set(u => u.Password, user.Password)
+                .Update();
         }
     }
 }
