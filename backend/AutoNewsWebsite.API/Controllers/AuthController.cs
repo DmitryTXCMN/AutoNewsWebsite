@@ -41,7 +41,6 @@ namespace AutoNewsWebsite.API.Controllers
                     response = Ok(new {token = tokenString});
                 }
             }
-
             
             //HttpContext.Response.Cookies.Append("Authorization", JwtLogic.GenerateJSONWebToken(user, _config));
             Console.WriteLine($"{loginModel.Login} {loginModel.Password}");
