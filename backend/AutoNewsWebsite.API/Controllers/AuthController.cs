@@ -42,6 +42,8 @@ namespace AutoNewsWebsite.API.Controllers
                 }
             }
 
+            
+            //HttpContext.Response.Cookies.Append("Authorization", JwtLogic.GenerateJSONWebToken(user, _config));
             Console.WriteLine($"{loginModel.Login} {loginModel.Password}");
             return response;
         }
@@ -58,6 +60,8 @@ namespace AutoNewsWebsite.API.Controllers
                 Password = _hash.Create(loginModel.Password)
             };
 
+            //HttpContext.Response.Cookies.Append("Authorization", JwtLogic.GenerateJSONWebToken(user, _config));
+            
             if (UserLogic.IsExist(user))
                 return Ok("User is exist");
             UserLogic.Create(user);
