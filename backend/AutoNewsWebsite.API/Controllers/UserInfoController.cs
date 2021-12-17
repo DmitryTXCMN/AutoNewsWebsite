@@ -26,5 +26,12 @@ namespace AutoNewsWebsite.API.Controllers
             UserInfoLogic.Create(userInfoDto);
             return Ok("Nice");
         }
+
+        [HttpPost]
+        public IActionResult EditUserInfo([FromBody] UserInfo userInfo)
+        {
+            UserInfoLogic.Edit(userInfo);
+            return Ok("success: edit user info");
+        }
     }
 }
