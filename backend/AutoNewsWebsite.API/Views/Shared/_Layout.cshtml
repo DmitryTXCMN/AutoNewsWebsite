@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using AutoNewsWebsite.DAL.Models
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -35,6 +36,21 @@
     </main>
 </div>
 
+<form id="ajaxfunc">
+    <button type="submit">Абоба</button>
+    <input type="hidden" name="Head" value="Head">
+    <input type="hidden" name="Content" value="Content">
+    <input type="hidden" name="DateOfCreate" value="2017-06-01T08:30">
+</form>
+<script>
+ajaxfunc.onsubmit = async (e) => {
+e.preventDefault();
+let xmlHttp = new XMLHttpRequest();
+xmlHttp.open("post", "https://localhost:5001/News/Create");
+xmlHttp.send(new FormData(ajaxfunc));
+location.reload();
+};
+</script>
 <footer class="border-top footer text-muted">
     <div class="container">
         &copy; 2021 - AutoNewsWebsite.API - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

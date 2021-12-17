@@ -21,7 +21,7 @@ namespace AutoNewsWebsite.API.Controllers
         public IActionResult GetById(Guid id) => Ok(NewsLogic.GetById(id));
 
         [HttpPost]
-        public IActionResult Create([FromBody] NewsModel news)
+        public IActionResult Create([FromForm] NewsModel news)
         {
             
             NewsLogic.Create(new News()
