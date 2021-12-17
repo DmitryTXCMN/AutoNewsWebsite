@@ -16,6 +16,16 @@ namespace AutoNewsWebsite.BLL
                 select p;
             return query.FirstOrDefault();
         }
+        
+        public static News GetByIdFilter(Guid id, DateTime time)
+        {
+            using var db = new DbRepository();
+            var query = from p in db.News
+                where p.Id == id
+                where p.DateOfCreate == time
+                select p;
+            return query.FirstOrDefault();
+        }
         public static void Create(News news)
         {
             using var db = new DbRepository();

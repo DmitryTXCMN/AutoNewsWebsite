@@ -19,9 +19,12 @@ namespace AutoNewsWebsite.API.Controllers
         
         [HttpGet]
         public IActionResult GetById(Guid id) => Ok(NewsLogic.GetById(id));
+        
+        [HttpGet]
+        public IActionResult GetByIdFilter(Guid id, DateTime time) => Ok(NewsLogic.GetByIdFilter(id, time));
 
         [HttpPost]
-        public IActionResult Create([FromForm] NewsModel news)
+        public IActionResult Create([FromBody] NewsModel news)
         {
             
             NewsLogic.Create(new News()
