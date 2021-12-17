@@ -21,5 +21,18 @@ namespace AutoNewsWebsite.BLL
             using var db = new DbRepository();
             db.Insert(userInfo);
         }
+
+        public static void Edit(UserInfo userInfo)
+        {
+            using var db = new DbRepository();
+            db.UserInfo
+                .Where(p => p.Id == userInfo.Id)
+                .Set(p => p.Email, userInfo.Email)
+                .Set(p => p.Image, userInfo.Image)
+                .Set(p => p.Nickname, userInfo.Nickname)
+                .Set(p => p.Status, userInfo.Status)
+                .Set(p => p.AuthID, userInfo.AuthID)
+                .Update();
+        }
     }
 }
