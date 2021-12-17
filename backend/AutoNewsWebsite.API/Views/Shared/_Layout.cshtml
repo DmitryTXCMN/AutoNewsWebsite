@@ -7,35 +7,45 @@
     <title>@ViewData["Title"] - AutoNewsWebsite.API</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
+    <link rel="stylesheet" href="~/css/footer.css">
+    <link rel="stylesheet" href="~/css/header.css">
+    <link rel="stylesheet" href="~/css/styles.css">
 </head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AutoNewsWebsite.API</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
+<body class="body">
+<div class="header">
+        <div class="headerElements">
+            <div></div>
+            <img alt="logo" class="logo" src="img/logo.jpg" />
+            <div class="headerLeftElements">
+                <a class="headerElement" asp-area="" asp-page="/MainPage">
+                    Main Page
+                </a>
+                <a class="headerElement" asp-area="" asp-page="/Find">
+                    Find
+                </a>
+                <a class="headerElement" asp-area="" asp-page="/Authors">
+                    Authors
+                </a>
+                <a class="headerElement" asp-area="" asp-page="/AboutUs">
+                    About Us
+                </a>
+                <a class="headerElement" asp-area="" asp-page="/Contacts">
+                    Contacts
+                </a>
+
+            </div>
+            <div></div>
+            <div class="headerLoginElements">
+                <div class="headerElement">
+                    <a class="headerElement" asp-controller="Login" asp-action="Index">
+                        Log In
+                    </a>
+                </div>
             </div>
         </div>
-    </nav>
-</header>
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
 </div>
 
+<<<<<<< Updated upstream
 <form id="ajaxfunc">
     <button type="submit">Абоба</button>
     <input type="hidden" name="Head" value="Head">
@@ -56,6 +66,13 @@ location.reload();
         &copy; 2021 - AutoNewsWebsite.API - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
+=======
+        @RenderBody()
+
+<div class="footer">
+        FooterInfo
+</div>
+>>>>>>> Stashed changes
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>

@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "AutoNewsWebsite.DAL": {
+      "commandName": "Project"
+    },
+    "Профиль 2": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\Toxicman\\Desktop\\GitHub\\AutoNewsWebsite\\backend\\AutoNewsWebsite.API\\bin\\Debug\\net5.0"
+    }
+  }
+}
