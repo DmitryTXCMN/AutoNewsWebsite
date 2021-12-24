@@ -57,6 +57,8 @@ public class BackController : Controller
     public IActionResult CreateNews([FromForm] News news)
     {
         if (news.Title == default || news.Text == default || news.LogoUrl == default) return BadRequest();
+        news.Date = DateTime.Now;
+        news.CreatorId = (HttpContext.Items["User"] as User)!.Id;
         _dataContext.News.Add(news);
         _dataContext.SaveChanges();
         return Ok();
