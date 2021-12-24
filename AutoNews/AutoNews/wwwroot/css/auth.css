@@ -1,7 +1,10 @@
 .authFormBlock {
+    display flex;
+    align-items: center;
+    justify-content: center;
     width: 60%;
     height: 650px;
-    padding: 100px 200px;
+    padding: 20px 200px;
 }
 
 form {

@@ -51,3 +51,9 @@
     height: 40px;
     border-radius: 100%;
 }
+
+.a {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+}
