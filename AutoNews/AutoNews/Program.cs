@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-
-namespace player;
+namespace AutoNews;
 
 public static class Program
 {

@@ -1,19 +1,16 @@
-using System;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 using AutoNews.DB;
 using Microsoft.AspNetCore.Mvc;
-using player.DB;
 using player.Services;
 
-namespace player.Controllers;
+namespace AutoNews.Controllers;
 
 public class EnteringController : ControllerBase
 {
-    private readonly PlayerContext _dataContext;
+    private readonly AutoNewsContext _dataContext;
 
-    public EnteringController(PlayerContext dataContext) =>
+    public EnteringController(AutoNewsContext dataContext) =>
         _dataContext = dataContext;
 
     [HttpPost]

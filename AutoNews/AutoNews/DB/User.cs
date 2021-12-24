@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace player.DB;
+namespace AutoNews.DB;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public class User

@@ -1,9 +1,9 @@
-using AutoNews.DB;
 using Microsoft.EntityFrameworkCore;
+using player;
 
-namespace player.DB;
+namespace AutoNews.DB;
 
-public class PlayerContext : BaseDbContext
+public class AutoNewsContext : BaseDbContext
 {
     protected override string Catalog => Config.PlayerCatalog;
     

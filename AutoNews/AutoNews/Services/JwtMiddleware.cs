@@ -2,9 +2,10 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoNews;
+using AutoNews.DB;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;
-using player.DB;
 
 namespace player.Services;
 
@@ -15,7 +16,7 @@ public class JwtMiddleware
     public JwtMiddleware(RequestDelegate next) =>
         _next = next;
 
-    public async Task Invoke(HttpContext context, PlayerContext dataContext)
+    public async Task Invoke(HttpContext context, AutoNewsContext dataContext)
     {
         var token = context.Request.Cookies["Authorization"];
         if (token is not null && token != string.Empty) 
@@ -24,7 +25,7 @@ public class JwtMiddleware
         await _next(context);
     }
 
-    private async Task AttachAccountToContext(HttpContext context, PlayerContext dataContext, string token)
+    private async Task AttachAccountToContext(HttpContext context, AutoNewsContext dataContext, string token)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         tokenHandler.ValidateToken(token, new TokenValidationParameters

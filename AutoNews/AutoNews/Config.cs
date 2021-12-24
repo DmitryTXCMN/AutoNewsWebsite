@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace player;
+namespace AutoNews;
 
 public static class Config
 {

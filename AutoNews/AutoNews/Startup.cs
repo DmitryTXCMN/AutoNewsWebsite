@@ -1,12 +1,7 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using player.DB;
+using AutoNews.DB;
 using player.Services;
 
-namespace player;
+namespace AutoNews;
 
 public class Startup
 {
@@ -17,9 +12,8 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddDbContext<PlayerContext>();
+        services.AddDbContext<AutoNewsContext>();
 
-        services.AddControllers();
         services.AddControllersWithViews();
     }
 
