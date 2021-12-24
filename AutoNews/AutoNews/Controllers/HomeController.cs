@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using AutoNews.DB;
 using AutoNews.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,8 +7,13 @@ namespace AutoNews.Controllers;
 
 public class HomeController : Controller
 {
+    private readonly AutoNewsContext _dataContext;
+
+    public HomeController(AutoNewsContext dataContext) => 
+        _dataContext = dataContext;
+
     public IActionResult Index() =>
-        View();
+        View(_dataContext.News.OrderBy(n => n.Likes));
 
     public IActionResult Privacy() =>
         View();

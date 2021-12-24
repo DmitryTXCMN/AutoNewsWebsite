@@ -1,263 +1,47 @@
-﻿@{
+﻿@model IQueryable<AutoNews.DB.News>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <link rel="stylesheet" href="~/css/newsStyles.css">
 <div class="mainPageBody">
-        <a href="https://www.google.com" class="mainNews">
-                    <div class="newsElementContainer">
-        
-                        <img src="https://i.ytimg.com/vi/dip_8dmrcaU/maxresdefault.jpg" alt="newsImage"
-                            width="100%" height="600px">
-                        <div class="newsImageShadowLarge"></div>
-                        <div class="newsTopicLarge">
-                            Electric Porsche 718 reportedly coming in 2024 with 911 rivaling performance
-                        </div>
-                        <span class="newsCreatorLarge">
-                            dd.mm.yyyy - Nickname
-                        </span>
-                    </div>
-                </a>
-        <div class="newsBlock">
 
+    @{
+        var mainNews = Model?.First();
+    }
+    <a href="https://www.google.com" class="mainNews">
+        <div class="newsElementContainer">
 
-
-            <a href="https://www.google.com" class="elementNews">
-                <div class="newsElementContainer">
-                    <img src="http://autozov.ru/img/Porsche-Panamera_Turbo_S_2014_img-01_600px.jpg" alt="newsImage"
-                         width="100%" height="300px">
-                    <div class="newsImageShadowSmall"></div>
-                    <div class="newsTopicSmall">
-                        Electric Porsche 718 reportedly coming in 2024 with 911 rivaling performance
-                    </div>
-                    <span class="newsCreatorSmall">
-                        dd.mm.yyyy - Nickname
-                    </span>
-                </div>
-                <div class="newsArticle">
-                    <span class="newsArticleSpan">The Nissan Z was dead. Nissan planned to kill the car after the 370Z generation, according to
-                        a source familiar with the plans who prefers to remain anonymous.
-                        But not everyone within Nissan was convinced the Z car should die. Four years ago, Hiroshi
-                        Tamura, the chief product specialist for the Nissan GT-R and NISMO, met with Nissan's head of
-                        design, Alfonso Albaisa, to effectively resurrect the Z. Tamura, also known as "Mr. GT-R," asked
-                        for sketches of a new Z design...</span>
-                    <div class="newsTopicCreatorInfo">
-                        <img alt="avatar" class="newsAvatar" src={database} width="100%" height="100%" />
-                        <span style="font-weight: 700;">
-                            Nickname
-                        </span>
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.google.com" class="elementNews">
-                <div class="newsElementContainer">
-                    <img src="https://the-tech.kz/wp-content/uploads/2021/07/SONATA-hero-option1-764A5360-edit.jpg" alt="newsImage"
-                         width="100%" height="300px">
-                    <div class="newsImageShadowSmall"></div>
-                    <div class="newsTopicSmall">
-                        Electric Porsche 718 reportedly coming in 2024 with 911 rivaling performance
-                    </div>
-                    <span class="newsCreatorSmall">
-                        dd.mm.yyyy - Nickname
-                    </span>
-                </div>
-                <div class="newsArticle">
-                    <span class="newsArticleSpan">The Nissan Z was dead. Nissan planned to kill the car after the 370Z generation, according to
-                        a source familiar with the plans who prefers to remain anonymous.
-                        But not everyone within Nissan was convinced the Z car should die. Four years ago, Hiroshi
-                        Tamura, the chief product specialist for the Nissan GT-R and NISMO, met with Nissan's head of
-                        design, Alfonso Albaisa, to effectively resurrect the Z. Tamura, also known as "Mr. GT-R," asked
-                        for sketches of a new Z design...</span>
-                    <div class="newsTopicCreatorInfo">
-                        <img alt="avatar" class="newsAvatar" src={database} width="100%" height="100%" />
-                        <span style="font-weight: 700;">
-                            Nickname
-                        </span>
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.google.com" class="elementNews">
-                <div class="newsElementContainer">
-                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/9CB1/production/_118231104_evija-in-london_2.jpg  " alt="newsImage"
-                         width="100%" height="300px">
-                    <div class="newsImageShadowSmall"></div>
-                    <div class="newsTopicSmall">
-                        Electric Porsche 718 reportedly coming in 2024 with 911 rivaling performance
-                    </div>
-                    <span class="newsCreatorSmall">
-                        dd.mm.yyyy - Nickname
-                    </span>
-                </div>
-                <div class="newsArticle">
-                    <span class="newsArticleSpan">The Nissan Z was dead. Nissan planned to kill the car after the 370Z generation, according to
-                        a source familiar with the plans who prefers to remain anonymous.
-                        But not everyone within Nissan was convinced the Z car should die. Four years ago, Hiroshi
-                        Tamura, the chief product specialist for the Nissan GT-R and NISMO, met with Nissan's head of
-                        design, Alfonso Albaisa, to effectively resurrect the Z. Tamura, also known as "Mr. GT-R," asked
-                        for sketches of a new Z design...</span>
-                    <div class="newsTopicCreatorInfo">
-                        <img alt="avatar" class="newsAvatar" src={database} width="100%" height="100%" />
-                        <span style="font-weight: 700;">
-                            Nickname
-                        </span>
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.google.com" class="elementNews">
-                <div class="newsElementContainer">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/2020_Bugatti_Chiron_Super_Sport_300%2B_Prototype.jpg/1200px-2020_Bugatti_Chiron_Super_Sport_300%2B_Prototype.jpg" alt="newsImage"
-                         width="100%" height="300px">
-                    <div class="newsImageShadowSmall"></div>
-                    <div class="newsTopicSmall">
-                        Electric Porsche 718 reportedly coming in 2024 with 911 rivaling performance
-                    </div>
-                    <span class="newsCreatorSmall">
-                        dd.mm.yyyy - Nickname
-                    </span>
-                </div>
-                <div class="newsArticle">
-                    <span class="newsArticleSpan">The Nissan Z was dead. Nissan planned to kill the car after the 370Z generation, according to
-                        a source familiar with the plans who prefers to remain anonymous.
-                        But not everyone within Nissan was convinced the Z car should die. Four years ago, Hiroshi
-                        Tamura, the chief product specialist for the Nissan GT-R and NISMO, met with Nissan's head of
-                        design, Alfonso Albaisa, to effectively resurrect the Z. Tamura, also known as "Mr. GT-R," asked
-                        for sketches of a new Z design...</span>
-                    <div class="newsTopicCreatorInfo">
-                        <img alt="avatar" class="newsAvatar" src={database} width="100%" height="100%" />
-                        <span style="font-weight: 700;">
-                            Nickname
-                        </span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="commentSection">
-            <div class="bestWriterBlock">
-                Writer of the previous month:
-                <div class="writerInfo">
-                    <img alt="avatar" class="avatar" src="https://ru-static.z-dn.net/files/db9/df4bb46af948899a4f176992a2d2ff92.png" />
-                    <span style="font-weight: 500;">
-                        Stephen_Edelsten
-                    </span>
-                    <img alt="likeLogo" class="likesCount" src="~/img/like.png">
-                    <span style="font-weight: 470;">
-                        2141
-                    </span>
-                </div>
-            </div>
-            <div style="width: 2px; background: gray; height: 66%;">
-            </div>
-            <div class="bestWriterBlock">
-                Writer of the previous month:
-                <div class="writerInfo">
-                    <img alt="avatar" class="avatar" src="https://ru-static.z-dn.net/files/db9/df4bb46af948899a4f176992a2d2ff92.png" />
-                    <span style="font-weight: 500;">
-                        Stephen_Edelsten
-                    </span>
-                    <img alt="likeLogo" class="likesCount" src="~/img/like.png">
-                    <span style="font-weight: 470;">
-                        2141
-                    </span>
-                </div>
+            <img src="@mainNews?.LogoUrl" alt="newsImage"
+                 width="100%" height="600px">
+            <div class="newsImageShadowLarge"></div>
+            <div class="newsTopicLarge">
+                @mainNews?.Title
             </div>
         </div>
-       <div class="newsBlock">
-
-
-
-            <a href="/link/" class="elementNews">
-                <div class="newsElementContainer">
-
-                    <img src="/image/" alt="newsImage"
-                        width="100%" height="100%">
-                    <div class="newsImageShadowSmall"></div>
-                    <div class="newsTopicSmall">
-                        /topic/
-                    </div>
-                    <span class="newsCreatorSmall">
-                        /date/ - /nickname/
-                    </span>
-                </div>
-                <div class="newsArticle">
-                    <span class="newsArticleSpan">/newsArticle/</span>
-                    <div class="newsTopicCreatorInfo">
-                        <img alt="avatar" class="newsAvatar" src={/avatar} width="100%" height="100%" />
-                        <span style="font-weight: 700;">
-                            /nickname/
-                        </span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="/link/" class="elementNews">
-                <div class="newsElementContainer">
-
-                    <img src="/image/" alt="newsImage"
-                        width="100%" height="100%">
-                    <div class="newsImageShadowSmall"></div>
-                    <div class="newsTopicSmall">
-                        /topic/
-                    </div>
-                    <span class="newsCreatorSmall">
-                        /date/ - /nickname/
-                    </span>
-                </div>
-                <div class="newsArticle">
-                    <span class="newsArticleSpan">/newsArticle/</span>
-                    <div class="newsTopicCreatorInfo">
-                        <img alt="avatar" class="newsAvatar" src={/avatar} width="100%" height="100%" />
-                        <span style="font-weight: 700;">
-                            /nickname/
-                        </span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="/link/" class="elementNews">
-                <div class="newsElementContainer">
-
-                    <img src="/image/" alt="newsImage"
-                        width="100%" height="100%">
-                    <div class="newsImageShadowSmall"></div>
-                    <div class="newsTopicSmall">
-                        /topic/
-                    </div>
-                    <span class="newsCreatorSmall">
-                        /date/ - /nickname/
-                    </span>
-                </div>
-                <div class="newsArticle">
-                    <span class="newsArticleSpan">/newsArticle/</span>
-                    <div class="newsTopicCreatorInfo">
-                        <img alt="avatar" class="newsAvatar" src={/avatar} width="100%" height="100%" />
-                        <span style="font-weight: 700;">
-                            /nickname/
-                        </span>
-                    </div>
-                </div>
-            </a>
-             <a href="/link/" class="elementNews">
-                <div class="newsElementContainer">
-
-                    <img src="/image/" alt="newsImage"
-                        width="100%" height="100%">
-                    <div class="newsImageShadowSmall"></div>
-                    <div class="newsTopicSmall">
-                        /topic/
-                    </div>
-                    <span class="newsCreatorSmall">
-                        /date/ - /nickname/
-                    </span>
-                </div>
-                <div class="newsArticle">
-                    <span class="newsArticleSpan">/newsArticle/</span>
-                    <div class="newsTopicCreatorInfo">
-                        <img alt="avatar" class="newsAvatar" src={/avatar} width="100%" height="100%" />
-                        <span style="font-weight: 700;">
-                            /nickname/
-                        </span>
-                    </div>
-                </div>
-            </a>
+    </a>
+    <div class="newsBlock">
+        @if (Model is not null)
+        {
+@foreach (var news in Model.Skip(1))
+{
+    <a href="https://www.google.com" class="elementNews">
+        <div class="newsElementContainer">
+            <img src="@news.LogoUrl" alt="newsImage"
+                 width="100%" height="300px">
+            <div class="newsImageShadowSmall"></div>
+            <div class="newsTopicSmall">
+                @news.Title
+            </div>
         </div>
+        <div class="newsArticle">
+            <span class="newsArticleSpan">
+                @news.Text
+            </span>
+        </div>
+    </a>
+}
+        }
     </div>
+</div>
