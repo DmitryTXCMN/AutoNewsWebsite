@@ -30,6 +30,9 @@ public class NewsController : Controller
                             _dataContext.Likes.Any(l => l.NewsId == newsId && l.WriterId == userId)
             });
 
+    public IActionResult Create() => 
+        View();
+
     public readonly struct BetterComment
     {
         public int Id { get; init; }

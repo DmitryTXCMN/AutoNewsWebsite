@@ -48,7 +48,16 @@ public class BackController : Controller
     public IActionResult SendComment([FromForm] Comment comment)
     {
         if (comment.WriterId == default || comment.NewsId == default) return BadRequest();
-            _dataContext.Comments.Add(comment);
+        _dataContext.Comments.Add(comment);
+        _dataContext.SaveChanges();
+        return Ok();
+    }
+
+    [HttpPost, Authorize]
+    public IActionResult CreateNews([FromForm] News news)
+    {
+        if (news.Title == default || news.Text == default || news.LogoUrl == default) return BadRequest();
+        _dataContext.News.Add(news);
         _dataContext.SaveChanges();
         return Ok();
     }
