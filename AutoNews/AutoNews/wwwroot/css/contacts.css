@@ -1,0 +1,53 @@
+﻿.contactPageBody {
+    margin: 5px 0;
+    display: flex;
+    width: 1200px;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #252525;
+}
+
+.contactInfo {
+    padding: 0 5%;
+    width: 57%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    color: white;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 56px;
+}
+
+.map {
+    width: 1000px;
+    height: 600px;
+}
+
+.profileName {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 5px;
+    width: 100%;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.profileNameSpan {
+    font-weight: 300;
+}
+
+.contactLinks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    padding-left: 40px;
+}
+
+.contactLink {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
