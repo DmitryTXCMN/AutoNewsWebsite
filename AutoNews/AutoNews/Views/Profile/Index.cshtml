@@ -1,4 +1,4 @@
-@model dynamic
+@model AutoNews.DB.User
 
 @{
     ViewBag.Title = "title";
@@ -7,19 +7,16 @@
 
 <link rel="stylesheet" href="css/profile.css">
     <div class="profilePageBody">
-        <img src="img/like.png" class="profileAvatar">
+        <img src="@Model.AvatarUrl" class="profileAvatar">
         <div class="profileInfo">
-            <span class="nickname">@nickname</span>
+            <span class="nickname">@Model.NickName</span>
             <div class="profileUserInfo">
-                <span class="profileName">Name: <span class="profileNameSpan">@name_surmane</span></span>
-                <span class="profileName">Age: <span class="profileNameSpan">@age</span></span>
-                <span class="profileName">E-Mail: <span class="profileNameSpan">@email</span></span>
+                <span class="profileName">Name: <span class="profileNameSpan">@Model.Name</span></span>
+                <span class="profileName">Age: <span class="profileNameSpan">@Model.Age</span></span>
+                <span class="profileName">E-Mail: <span class="profileNameSpan">@Model.Login</span></span>
                 <div class="profileAbout">
                     <span>About me:</span>
-                    <span class="profileAboutSpan">@aboutme
-                        @aboutme
-                        @aboutme
-                        @aboutme
+                    <span class="profileAboutSpan">@Model.AboutMe
                     </span>
                 </div>
                 <div class="profileEditButtons">
