@@ -1,4 +1,4 @@
-﻿@model IQueryable<AutoNews.DB.News>
+﻿@model IQueryable<AutoNews.Controllers.HomeController.BetterNews>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -39,6 +39,12 @@
             <span class="newsArticleSpan">
                 @news.Text
             </span>
+            <div class="newsTopicCreatorInfo">
+                <img alt="avatar" class="newsAvatar" src="@news.Creator?.AvatarUrl" width="100%" height="100%"/>
+                <span style="font-weight: 700;">
+                    @news.Creator?.NickName
+                </span>
+            </div>
         </div>
     </a>
 }
