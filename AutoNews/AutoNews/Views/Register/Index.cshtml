@@ -1,0 +1,18 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="css/auth.css">
+
+    <div class="authFormBlock">
+        <form method="post" action="~/Login/Login">
+            <span>Register</span>
+            <input type="text" placeholder="Login"  name="login">
+            <input type="password" placeholder="Password"  name="password">
+            <a asp-controller="Login" asp-action="Index">Already have any profile? Click here to Log In.</a>
+            <input type="submit" value="Отправить" />
+        </form>
+    </div>

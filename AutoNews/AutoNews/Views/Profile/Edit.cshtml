@@ -5,4 +5,26 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<link rel="stylesheet" href="css/profile.css">
+<div class="profilePageBody">
+    <img src="img/like.png" class="profileAvatar">
+    <div class="profileInfo">
+        <span class="nickname">@nickname</span>
+        <div class="profileUserInfo">
+            <div class="profileName" style="justify-content: space-between;">Nickname: <input value="@nickname" class="profileNameInput"></div>
+            <div class="profileName" style="justify-content: space-between;">AvatarURL: <input value="@AvatarURL" class="profileNameInput"></div>
+            <div class="profileName" style="justify-content: space-between;">Name: <input value="@name_surmane" class="profileNameInput"></div>
+            <div class="profileName" style="justify-content: space-between;">Age: <input value="@age" class="profileNameInput"></div>
+            <div class="profileName" style="justify-content: space-between;">E-Mail: <input value="@email" class="profileNameInput"></div>
+            <div class="profileName" style="justify-content: space-between;">Password: <input value="@password" type="password" class="profileNameInput"></div>
+            <div class="profileAbout">
+                <span>About me:</span>
+                <textarea class="profileAboutInput">@aboutme</textarea>
+            </div>
+            <div class="profileEditButtons">
+                <button class="profileEditButton" type="submit">Cancel</button>
+                <button class="profileEditButton" type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
