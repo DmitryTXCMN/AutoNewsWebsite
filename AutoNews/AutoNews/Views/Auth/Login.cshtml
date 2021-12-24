@@ -8,11 +8,21 @@
 <link rel="stylesheet" href="~/css/auth.css">
 
     <div class="authFormBlock">
-        <form asp-controller="Entering" asp-action="Login">
+        <form id="registerForm">
             <span>Log In</span>
             <input type="text" placeholder="Login"  name="login">
             <input type="password" placeholder="Password"  name="password">
             <a asp-controller="Auth" asp-action="Register">Don't have profile? Click here to Register.</a>
             <input type="submit" value="Отправить" />
         </form>
+        <script>
+                    registerForm.onsubmit = async (e) => {
+                        e.preventDefault();
+                        await fetch('https://localhost:5001/Entering/Login', {
+                            method: 'POST',
+                            body: new FormData(registerForm)
+                        });
+                        location.reload();
+                    };
+        </script>
     </div>

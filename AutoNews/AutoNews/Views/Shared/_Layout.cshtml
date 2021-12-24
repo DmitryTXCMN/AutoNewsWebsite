@@ -12,42 +12,56 @@
 </head>
 <body class="body">
 <div class="header">
-        <div class="headerElements">
-            <div></div>
-            <img alt="logo" class="logo" src="~/img/logo.jpg" />
-            <div class="headerLeftElements">
-                <a class="headerElement" asp-controller="Home" asp-action="Index">
-                    Main Page
-                </a>
-                <a class="headerElement" asp-controller="Home" asp-action="Index">
-                    Find
-                </a>
-                <a class="headerElement" asp-controller="Home" asp-action="Index">
-                    Authors
-                </a>
-                <a class="headerElement" asp-controller="Home" asp-action="Privacy">
-                    About Us
-                </a>
-                <a class="headerElement" asp-controller="Home" asp-action="Privacy">
-                    Contacts
-                </a>
+    <div class="headerElements">
+        <div></div>
+        <img alt="logo" class="logo" src="~/img/logo.jpg"/>
+        <div class="headerLeftElements">
+            <a class="headerElement" asp-controller="Home" asp-action="Index">
+                Main Page
+            </a>
+            <a class="headerElement" asp-controller="Home" asp-action="Index">
+                Find
+            </a>
+            <a class="headerElement" asp-controller="Home" asp-action="Index">
+                Authors
+            </a>
+            <a class="headerElement" asp-controller="Home" asp-action="Privacy">
+                About Us
+            </a>
+            <a class="headerElement" asp-controller="Home" asp-action="Privacy">
+                Contacts
+            </a>
 
-            </div>
-            <div></div>
-            <div class="headerLoginElements">
-                <div class="headerElement">
+        </div>
+        <div></div>
+        <div class="headerLoginElements">
+            <div class="headerElement">
+                @if (Context.Items["User"] is null)
+                {
                     <a class="headerElement" asp-controller="Auth" asp-action="Login">
                         Log In
                     </a>
-                </div>
+                }
+                else
+                {
+                    <a class="headerElement" onclick="logout()" asp-controller="Auth" asp-action="Login">
+                        Log Out
+                    </a>
+                    <script>
+                        function logout(){
+                            document.cookie = 'Authorization' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT';
+                        }
+                    </script>
+                }
             </div>
         </div>
+    </div>
 </div>
 
-        @RenderBody()
+@RenderBody()
 
 <div class="footer">
-        FooterInfo
+    FooterInfo
 </div>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
