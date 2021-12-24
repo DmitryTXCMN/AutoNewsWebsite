@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AutoNewsWebsite.BLL\AutoNewsWebsite.BLL.csproj" />
+      <ProjectReference Include="..\AutoNewsWebsite.DAL\AutoNewsWebsite.DAL.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="10.1.1" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.12" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.14.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\img\" />
+    </ItemGroup>
+
+</Project>

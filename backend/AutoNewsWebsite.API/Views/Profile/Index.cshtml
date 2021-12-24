@@ -1,0 +1,30 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="css/profile.css">
+    <div class="profilePageBody">
+        <img src="img/like.png" class="profileAvatar">
+        <div class="profileInfo">
+            <span class="nickname">@nickname</span>
+            <div class="profileUserInfo">
+                <span class="profileName">Name: <span class="profileNameSpan">@name_surmane</span></span>
+                <span class="profileName">Age: <span class="profileNameSpan">@age</span></span>
+                <span class="profileName">E-Mail: <span class="profileNameSpan">@email</span></span>
+                <div class="profileAbout">
+                    <span>About me:</span>
+                    <span class="profileAboutSpan">@aboutme
+                        @aboutme
+                        @aboutme
+                        @aboutme
+                    </span>
+                </div>
+                <div class="profileEditButtons">
+                    <button class="profileEditButton" type="submit">Edit</button>
+                  </div>
+            </div>
+        </div>
+    </div>

@@ -27,10 +27,10 @@ namespace AutoNewsWebsite.API.Controllers
                 {
                     uploadedFile.CopyToAsync(fileStream);
                 }
-                var file = new FileModel { Name = uploadedFile.FileName, Path = path };
+                //var file = new FileModel { Name = uploadedFile.FileName, Path = path };
                 using var db = new DbRepository();
 
-                db.Insert(file);
+                //db.Insert(file);
             }
 
             return Ok("Success");
