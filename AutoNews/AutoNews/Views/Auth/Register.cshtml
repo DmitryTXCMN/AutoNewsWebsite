@@ -9,10 +9,10 @@
 
     <div class="authFormBlock">
         <form method="post" action="~/Login/Login">
-            <span>Log In</span>
+            <span>Register</span>
             <input type="text" placeholder="Login"  name="login">
             <input type="password" placeholder="Password"  name="password">
-            <a asp-controller="Register" asp-action="Index">Don't have profile? Click here to Register.</a>
+            <a asp-controller="Auth" asp-action="Login">Already have any profile? Click here to Log In.</a>
             <input type="submit" value="Отправить" />
         </form>
     </div>

@@ -1,9 +1,12 @@
+using AutoNews.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoNews.Controllers;
 
 public class ProfileController : Controller
 {
+    [Authorize]
     public IActionResult Index() => View(HttpContext.Items["User"]);
-    public IActionResult Edit() => View();
+    [Authorize]
+    public IActionResult Edit() => View(HttpContext.Items["User"]);
 }
