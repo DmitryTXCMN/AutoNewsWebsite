@@ -1,10 +1,8 @@
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using AutoNews;
 using Microsoft.IdentityModel.Tokens;
 
-namespace player.Services;
+namespace AutoNews.Services;
 
 public static class JwtGenerator
 {

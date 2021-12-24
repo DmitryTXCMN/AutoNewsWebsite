@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using player;
 
 namespace AutoNews.DB;
 

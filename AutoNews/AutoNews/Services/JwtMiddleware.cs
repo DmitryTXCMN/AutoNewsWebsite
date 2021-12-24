@@ -1,13 +1,8 @@
-using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoNews;
 using AutoNews.DB;
-using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;
 
-namespace player.Services;
+namespace AutoNews.Services;
 
 public class JwtMiddleware
 {

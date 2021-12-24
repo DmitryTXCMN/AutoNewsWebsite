@@ -1,5 +1,5 @@
 using AutoNews.DB;
-using player.Services;
+using AutoNews.Services;
 
 namespace AutoNews;
 
