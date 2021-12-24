@@ -1,39 +1,41 @@
-﻿@{
+﻿@model AutoNews.Controllers.NewsController.NewsModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <link rel="stylesheet" href="css/news.css">
-    <div class="newsPageBody">
-        <img class="newsImage" src="http://autozov.ru/img/Porsche-Panamera_Turbo_S_2014_img-01_600px.jpg"
-            alt="newsImage">
-        <span class="newsCreator">
-            dd.mm.yyyy - Nickname
-        </span>
+<div class="newsPageBody">
+    <img class="newsImage" src="http://autozov.ru/img/Porsche-Panamera_Turbo_S_2014_img-01_600px.jpg"
+         alt="newsImage">
+    <span class="newsCreator">
+        dd.mm.yyyy - Nickname
+    </span>
 
-        <span class="newsTitle">
-            The Nissan Z was dead, then reborn as an "under the table" skunkworks project
-        </span>
-        <div class="line"></div>
-        <span class="newsArticle_">
-            The Nissan Z was dead. Nissan planned to kill the car after the 370Z generation, according to a source familiar with the plans who prefers to remain anonymous. But not everyone within Nissan was convinced the Z car should die. Four years ago, Hiroshi Tamura, the chief product specialist for the Nissan GT-R and NISMO, met with Nissan's head of design, Alfonso Albaisa, to effectively resurrect the Z. Tamura, also known as "Mr. GT-R," asked for sketches of a new Z design. "Please make for me some energy, motivation, not a PowerPoint, just the energy of sketches,” Tamura recalled telling Albaisa in an exclusive interview with Motor Authority. Executives had no idea what Tamura and Albaisa were up to. The new Z is a heavily revised 370Z with updated suspension geometry, a new powertrain, an enhanced structure, and completely new styling. Much of the car’s engineering carries over, but Nissan’s changes make it "different, big different," Tamura said with a grand sweeping gesture. Tamura told MA back in 2019 that the next Z would be "shaped by customers," and that's exactly what happened. Z car clubs and Z societies wanted more power, and Nissan responded with a 400-hp twin-turbo 3.0-liter V-6. The engine came from the Nissan/Infiniti parts bin, but the 7-speed automatic was no longer a great match, according to Tamura. Tamura said nine gears would improve response with close ratio changes to deliver better balance and a flatter torque curve. The engine comes from the Infiniti Q60 Red Sport 400, but it has a recirculation valve to lower the back pressure on the intake manifold between shifts or when letting off the accelerator. This little change was made to provide better throttle response. The reason the Q60 doesn't have it? Because response is more important in a sports car than in a grand tourer, Tamura noted. Getting heavier, feeling lighter Between the two turbos, two intercoolers, a larger radiator, and the new transmission, the new powertrain alone added about 200 lb to the Z, according to Tamura. But the new Z was tuned to deliver a lightweight feeling. Nissan hasn't released the production car's weight yet, but it will be more than the outgoing 370Z’s 3,457-lb curb weight with the manual transmission. From the beginning, Tamura's challenge to the team was to make a heavier car feel lighter. The answer was to perform some alignment tuning. The Z team also benchmarked the reborn Toyota Supra for performance. The team changed how the suspension moves to handle the new torque curve. Nissan engineers changed the damper mounting points, modified the bump stop touch points, dialed in more front caster, increased the spring rates, softened the dampers 20%, and used wider front tires. The changes increase the accuracy of the suspension geometry, and Tamura said they also improve cornering performance and reduce understeer. The switch to electric power steering allowed the team to dial in quicker responses thanks to a stiffer rack. "Everything was sharpened," Tamura said. Nissan started with the structure from the 370Z, but reinforced it to handle more twist from the extra power. The front crash structure, part of the front firewall, the rear subframe, and most of the rear hatch are either new or reinforced, and front underbody bracing was added. The changes increased torsional stiffness by 10.9% and improved the rigidity of the rear hatch by 23.9%. Nissan didn’t put the Z on a carbon-fiber diet or give it other exotic materials to save weight like the GT-R. “This is about keeping things within a certain price point, and yet keeping the balance of price and performance,” Tamura said. Performance was important, but Tamura acknowledged "all of the content starts from styling, beauty, great styling design." The team had to chase a slippery coefficient of drag, which means the styling had to work with the aerodynamics. However, Tamura didn’t want a rear spoiler because he thinks it's a "negative for beauty." But it's needed for performance, which is why the Performance model has a rear lip spoiler to reduce lift at speed. Historically, the Z’s weakness has been brake cooling, or a lack thereof. Despite the increase in horsepower, Nissan didn’t improve brake cooling—again to keep the cost under control. What about NISMO, a convertible, and AWD? The Z "always needs to improve for the customer," Tamura said. If customers demand something, and the projections justify the sales volume, "I will do that," Tamura noted. But the current market doesn’t justify a convertible, according to Tamura. With the new car’s extra horsepower, the body construction would need further reinforcements, which would add even more weight. The Infiniti Q60 Red Sport 400 can be optioned with all-wheel drive, but the Z won’t get this option. It adds all-weather control, but "an all-wheel-drive system is more GT than sports car," Tamura said. The standard Yokohama ADVAN Sport tires, or Performance model’s Bridgestone Potenza S007 tires, used on the Z can handle around 150-200 hp per tire, according to Tamura. With just 400 hp, all-wheel drive isn't necessary. As for whether a NISMO model will return, Tamura simply smiled and noted it needed to be justified. "If strong customer demand, why not," he said. It may not have been a smooth road to get here, but Tamura’s campaign within Nissan was clearly successful and now enthusiasts have a Z that otherwise might not exist. Update: This story has been updated to add confirmation that Nissan planned to kill the Z car.
-        </span>
-        <div class="line"></div>
-        <span class="newsTitle">
-            Comments
-        </span>
-        <div class="comments">
-            
+    <span class="newsTitle">
+        The Nissan Z was dead, then reborn as an "under the table" skunkworks project
+    </span>
+    <div class="line"></div>
+    <span class="newsArticle_">
+        The Nissan Z was dead. Nissan planned to kill the car after the 370Z generation, according to a source familiar with the plans who prefers to remain anonymous. But not everyone within Nissan was convinced the Z car should die. Four years ago, Hiroshi Tamura, the chief product specialist for the Nissan GT-R and NISMO, met with Nissan's head of design, Alfonso Albaisa, to effectively resurrect the Z. Tamura, also known as "Mr. GT-R," asked for sketches of a new Z design. "Please make for me some energy, motivation, not a PowerPoint, just the energy of sketches,” Tamura recalled telling Albaisa in an exclusive interview with Motor Authority. Executives had no idea what Tamura and Albaisa were up to. The new Z is a heavily revised 370Z with updated suspension geometry, a new powertrain, an enhanced structure, and completely new styling. Much of the car’s engineering carries over, but Nissan’s changes make it "different, big different," Tamura said with a grand sweeping gesture. Tamura told MA back in 2019 that the next Z would be "shaped by customers," and that's exactly what happened. Z car clubs and Z societies wanted more power, and Nissan responded with a 400-hp twin-turbo 3.0-liter V-6. The engine came from the Nissan/Infiniti parts bin, but the 7-speed automatic was no longer a great match, according to Tamura. Tamura said nine gears would improve response with close ratio changes to deliver better balance and a flatter torque curve. The engine comes from the Infiniti Q60 Red Sport 400, but it has a recirculation valve to lower the back pressure on the intake manifold between shifts or when letting off the accelerator. This little change was made to provide better throttle response. The reason the Q60 doesn't have it? Because response is more important in a sports car than in a grand tourer, Tamura noted. Getting heavier, feeling lighter Between the two turbos, two intercoolers, a larger radiator, and the new transmission, the new powertrain alone added about 200 lb to the Z, according to Tamura. But the new Z was tuned to deliver a lightweight feeling. Nissan hasn't released the production car's weight yet, but it will be more than the outgoing 370Z’s 3,457-lb curb weight with the manual transmission. From the beginning, Tamura's challenge to the team was to make a heavier car feel lighter. The answer was to perform some alignment tuning. The Z team also benchmarked the reborn Toyota Supra for performance. The team changed how the suspension moves to handle the new torque curve. Nissan engineers changed the damper mounting points, modified the bump stop touch points, dialed in more front caster, increased the spring rates, softened the dampers 20%, and used wider front tires. The changes increase the accuracy of the suspension geometry, and Tamura said they also improve cornering performance and reduce understeer. The switch to electric power steering allowed the team to dial in quicker responses thanks to a stiffer rack. "Everything was sharpened," Tamura said. Nissan started with the structure from the 370Z, but reinforced it to handle more twist from the extra power. The front crash structure, part of the front firewall, the rear subframe, and most of the rear hatch are either new or reinforced, and front underbody bracing was added. The changes increased torsional stiffness by 10.9% and improved the rigidity of the rear hatch by 23.9%. Nissan didn’t put the Z on a carbon-fiber diet or give it other exotic materials to save weight like the GT-R. “This is about keeping things within a certain price point, and yet keeping the balance of price and performance,” Tamura said. Performance was important, but Tamura acknowledged "all of the content starts from styling, beauty, great styling design." The team had to chase a slippery coefficient of drag, which means the styling had to work with the aerodynamics. However, Tamura didn’t want a rear spoiler because he thinks it's a "negative for beauty." But it's needed for performance, which is why the Performance model has a rear lip spoiler to reduce lift at speed. Historically, the Z’s weakness has been brake cooling, or a lack thereof. Despite the increase in horsepower, Nissan didn’t improve brake cooling—again to keep the cost under control. What about NISMO, a convertible, and AWD? The Z "always needs to improve for the customer," Tamura said. If customers demand something, and the projections justify the sales volume, "I will do that," Tamura noted. But the current market doesn’t justify a convertible, according to Tamura. With the new car’s extra horsepower, the body construction would need further reinforcements, which would add even more weight. The Infiniti Q60 Red Sport 400 can be optioned with all-wheel drive, but the Z won’t get this option. It adds all-weather control, but "an all-wheel-drive system is more GT than sports car," Tamura said. The standard Yokohama ADVAN Sport tires, or Performance model’s Bridgestone Potenza S007 tires, used on the Z can handle around 150-200 hp per tire, according to Tamura. With just 400 hp, all-wheel drive isn't necessary. As for whether a NISMO model will return, Tamura simply smiled and noted it needed to be justified. "If strong customer demand, why not," he said. It may not have been a smooth road to get here, but Tamura’s campaign within Nissan was clearly successful and now enthusiasts have a Z that otherwise might not exist. Update: This story has been updated to add confirmation that Nissan planned to kill the Z car.
+    </span>
+    <div class="line"></div>
+    <span class="newsTitle">
+        Comments
+    </span>
+    <div class="comments">
+        @foreach (var comment in Model.Comments)
+        {
             <div class="comment">
                 <div class="commentatorInfo">
-                    <a href="https://localhost:5001/Profile?userId=@comment.Writer.Id">
-                        <img src="@comment.Writer.AvatarURL" alt="userAvatar" class='userAvatar avatar'>
+                    <a href="https://localhost:5001/Profile?userId=@comment.Writer?.Id">
+                        <img src="@comment.Writer?.AvatarUrl" alt="userAvatar" class='userAvatar avatar'>
                     </a>
-                    @comment.Writer.Name
+                    @comment.Writer?.Name
                 </div>
                 <span class="commentText">
                     @comment.Text
                 </span>
-                 @if (Model.UserId == comment.Writer.Id)
+                @if (Model.User?.Id == comment.Writer?.Id)
                 {
                     <form id="deleteComment@(comment.Id)">
                         <input type="hidden" name="commentId" value="@comment.Id"/>
@@ -43,34 +45,30 @@
                                             deleteComment@(comment.Id).onsubmit = async (e) => {
                                                 e.preventDefault();
                                                 let xmlHttp = new XMLHttpRequest();
-                                                xmlHttp.open("post", "https://localhost:5001/Comments/Delete"); 
+                                                xmlHttp.open("post", "https://localhost:5001/Back/DeleteComment"); 
                                                 await xmlHttp.send(new FormData(deleteComment@(comment.Id)));
                                                 setTimeout(function(){ location.reload()}, 100);
                                             };
                     </script>
                 }
             </div>
+        }
 
-            <div class="comment">
-                <div class="commentatorInfo">
-                    <a href="https://localhost:5001/Profile?userId=@comment.Writer.Id">
-                        <img src="@comment.Writer.AvatarURL" alt="userAvatar" class='userAvatar avatar'>
-                    </a>
-                    @comment.Writer.Name
-                </div>
-                <span class="commentText">
-                    @comment.Text
-                </span>
-                    <form id="deleteComment@(comment.Id)">
-                        <input type="hidden" name="commentId" value="@comment.Id"/>
-                        <button class="deleteComment" type="submit">x</button>
-                    </form>
-            </div>
-
-            <form id="sendCommentForm" class="sendComment">
-                <input type="hidden" name="siteId" value="@Model.Site.Id"/>
-                <textarea name="text" class="sendCommentInput" placeholder="Comment..."></textarea>
-                <button class="sendCommentButton" type="submit">Send</button>
-            </form>
-        </div>
+        <form id="sendCommentForm" class="sendComment">
+            <input type="hidden" name="newsId" value="@Model.News.Id"/>
+            <input type="hidden" name="writerId" value="@Model.User?.Id"/>
+            <textarea name="text" class="sendCommentInput" placeholder="Comment..."></textarea>
+            <button class="sendCommentButton" type="submit">Send</button>
+        </form>
+        <script>
+                    sendCommentForm.onsubmit = async (e) => {
+                        e.preventDefault();
+                        await fetch('https://localhost:5001/Back/SendComment', {
+                            method: 'POST',
+                            body: new FormData(sendCommentForm)
+                        });
+                        location.reload();
+                    };
+            </script>
+    </div>
 </div>

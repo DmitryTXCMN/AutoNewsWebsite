@@ -6,22 +6,25 @@
 }
 
 <link rel="stylesheet" href="~/css/profile.css">
-    <div class="profilePageBody">
-        <img src="@Model.AvatarUrl" class="profileAvatar">
-        <div class="profileInfo">
-            <span class="nickname">@Model.NickName</span>
-            <div class="profileUserInfo">
-                <span class="profileName">Name: <span class="profileNameSpan">@Model.Name</span></span>
-                <span class="profileName">Age: <span class="profileNameSpan">@Model.Age</span></span>
-                <span class="profileName">E-Mail: <span class="profileNameSpan">@Model.Login</span></span>
-                <div class="profileAbout">
-                    <span>About me:</span>
-                    <span class="profileAboutSpan">@Model.AboutMe
-                    </span>
-                </div>
-                <div class="profileEditButtons">
+<div class="profilePageBody">
+    <img src="@Model.AvatarUrl" class="profileAvatar">
+    <div class="profileInfo">
+        <span class="nickname">@Model.NickName</span>
+        <div class="profileUserInfo">
+            <span class="profileName">Name: <span class="profileNameSpan">@Model.Name</span></span>
+            <span class="profileName">Age: <span class="profileNameSpan">@Model.Age</span></span>
+            <span class="profileName">E-Mail: <span class="profileNameSpan">@Model.Login</span></span>
+            <div class="profileAbout">
+                <span>About me:</span>
+                <span class="profileAboutSpan">
+                    @Model.AboutMe
+                </span>
+            </div>
+            <div class="profileEditButtons">
+                <a asp-controller="Profile" asp-action="Edit">
                     <button class="profileEditButton" type="submit">Edit</button>
-                  </div>
+                </a>
             </div>
         </div>
     </div>
+</div>

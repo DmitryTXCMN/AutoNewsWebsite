@@ -10,21 +10,33 @@
     <img src="@Model.AvatarUrl" class="profileAvatar">
     <div class="profileInfo">
         <span class="nickname">@Model.NickName</span>
-        <div class="profileUserInfo">
-            <div class="profileName" style="justify-content: space-between;">Nickname: <input value="@Model.NickName" class="profileNameInput"></div>
-            <div class="profileName" style="justify-content: space-between;">AvatarURL: <input value="@Model.AvatarUrl" class="profileNameInput"></div>
-            <div class="profileName" style="justify-content: space-between;">Name: <input value="@Model.Name" class="profileNameInput"></div>
-            <div class="profileName" style="justify-content: space-between;">Age: <input value="@Model.Age" class="profileNameInput"></div>
-            <div class="profileName" style="justify-content: space-between;">E-Mail: <input value="@Model.Login" class="profileNameInput"></div>
-            <div class="profileName" style="justify-content: space-between;">Password: <input value="@Model.Password" type="password" class="profileNameInput"></div>
-            <div class="profileAbout">
-                <span>About me:</span>
-                <textarea class="profileAboutInput">@Model.AboutMe</textarea>
+        <form id="profileEditForm">
+            <div class="profileUserInfo">
+                <div class="profileName" style="justify-content: space-between;">Nickname: <input name="NickName" value="@Model.NickName" class="profileNameInput"></div>
+                <div class="profileName" style="justify-content: space-between;">AvatarURL: <input name="avatarUrl" value="@Model.AvatarUrl" class="profileNameInput"></div>
+                <div class="profileName" style="justify-content: space-between;">Name: <input name="name" value="@Model.Name" class="profileNameInput"></div>
+                <div class="profileName" style="justify-content: space-between;">Age: <input name="age" value="@Model.Age" class="profileNameInput"></div>
+                <div class="profileName" style="justify-content: space-between;">E-Mail: <input name="login" value="@Model.Login" class="profileNameInput"></div>
+                <div class="profileName" style="justify-content: space-between;">Password: <input name="password" value="@Model.Password" type="password" class="profileNameInput"></div>
+                <div class="profileAbout">
+                    <span>About me:</span>
+                    <textarea class="profileAboutInput" name="AboutMe">@Model.AboutMe</textarea>
+                </div>
+                <div class="profileEditButtons">
+                    <button class="profileEditButton" type="submit" onclick="document.location.href='localhost:5001'">Cancel</button>
+                    <button class="profileEditButton" type="submit">Save</button>
+                </div>
             </div>
-            <div class="profileEditButtons">
-                <button class="profileEditButton" type="submit">Cancel</button>
-                <button class="profileEditButton" type="submit">Save</button>
-            </div>
-        </div>
+        </form>
+        <script>
+                    profileEditForm.onsubmit = async (e) => {
+                        e.preventDefault();
+                        await fetch('https://localhost:5001/Back/EditProfile', {
+                            method: 'POST',
+                            body: new FormData(profileEditForm)
+                        });
+                        location.reload();
+                    };
+        </script>
     </div>
 </div>

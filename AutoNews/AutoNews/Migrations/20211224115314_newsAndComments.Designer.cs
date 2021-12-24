@@ -3,6 +3,7 @@ using AutoNews.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoNews.Migrations
 {
     [DbContext(typeof(AutoNewsContext))]
-    partial class AutoNewsContextModelSnapshot : ModelSnapshot
+    [Migration("20211224115314_newsAndComments")]
+    partial class newsAndComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,25 +46,6 @@ namespace AutoNews.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("AutoNews.DB.Like", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("NewsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WriterId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Likes");
-                });
-
             modelBuilder.Entity("AutoNews.DB.News", b =>
                 {
                     b.Property<int>("Id")
@@ -70,9 +53,6 @@ namespace AutoNews.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Likes")
-                        .HasColumnType("int");
 
                     b.Property<string>("LogoUrl")
                         .IsRequired()
