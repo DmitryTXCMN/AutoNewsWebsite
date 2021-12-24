@@ -33,10 +33,22 @@
                 <span class="commentText">
                     @comment.Text
                 </span>
+                 @if (Model.UserId == comment.Writer.Id)
+                {
                     <form id="deleteComment@(comment.Id)">
                         <input type="hidden" name="commentId" value="@comment.Id"/>
                         <button class="deleteComment" type="submit">x</button>
                     </form>
+                    <script>
+                                            deleteComment@(comment.Id).onsubmit = async (e) => {
+                                                e.preventDefault();
+                                                let xmlHttp = new XMLHttpRequest();
+                                                xmlHttp.open("post", "https://localhost:5001/Comments/Delete"); 
+                                                await xmlHttp.send(new FormData(deleteComment@(comment.Id)));
+                                                setTimeout(function(){ location.reload()}, 100);
+                                            };
+                    </script>
+                }
             </div>
 
             <div class="comment">
