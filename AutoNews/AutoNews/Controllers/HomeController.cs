@@ -12,27 +12,80 @@ public class HomeController : Controller
     public HomeController(AutoNewsContext dataContext) =>
         _dataContext = dataContext;
 
-    public IActionResult Index() =>
-        View(_dataContext.News.OrderBy(n => n.Likes).Select(n => new BetterNews
-        {
-            Id = n.Id,
-            Title = n.Title,
-            Text = n.Text,
-            LogoUrl = n.LogoUrl,
-            Likes = n.Likes,
-            Date = n.Date,
-            Creator = _dataContext.Users.FirstOrDefault(u => u.Id == n.CreatorId)
-        }));
-
-    public readonly struct BetterNews
+    //логика вам мерещится
+    public IActionResult Index()
     {
-        public int Id { get; init; }
-        public string Title { get; init; }
-        public string Text { get; init; }
-        public string LogoUrl { get; init; }
-        public int Likes { get; init; }
-        public DateTime Date { get; init; }
-        public User? Creator { get; init; }
+        var monthAgo = DateTime.Now.AddMonths(-1);
+        var twoMonthsAgo = DateTime.Now.AddMonths(-2);
+
+        var news = _dataContext.News
+            .Where(n => n.Date > monthAgo)
+            .OrderBy(n => n.Likes)
+            .Select(n => new HomeIndexModel.BetterNews
+            {
+                Id = n.Id,
+                Title = n.Title,
+                Text = n.Text,
+                LogoUrl = n.LogoUrl,
+                Likes = n.Likes,
+                Date = n.Date,
+                Creator = _dataContext.Users.FirstOrDefault(u => u.Id == n.CreatorId)
+            })
+            .ToList();
+
+        var writer1 = _dataContext.Users
+            .OrderBy(u => _dataContext.News
+                .Where(n => n.CreatorId == u.Id && n.Date >= twoMonthsAgo && n.Date < monthAgo)
+                .Sum(n => n.Likes))
+            .FirstOrDefault()!;
+        var writer2 = _dataContext.Users
+            .OrderBy(u => _dataContext.News
+                .Where(n => n.CreatorId == u.Id && n.Date >= monthAgo)
+                .Sum(n => n.Likes))
+            .FirstOrDefault()!;
+
+        return View(new HomeIndexModel
+        {
+            HeaderNews = news.FirstOrDefault(),
+            News1 = news.Count > 1
+                ? news.Skip(1).Take(Math.Min(4, news.Count - 1)).ToList()
+                : new List<HomeIndexModel.BetterNews>(),
+            News2 = news.Count > 5
+                ? news.Skip(5).Take(Math.Min(4, news.Count - 1)).ToList()
+                : new List<HomeIndexModel.BetterNews>(),
+            Writer1 = writer1,
+            Writer2 = writer2,
+            Likes1 = _dataContext.News
+                .Where(n => n.CreatorId == writer1.Id &&
+                            n.Date >= monthAgo)
+                .Sum(n => n.Likes),
+            Likes2 = _dataContext.News
+                .Where(n => n.CreatorId == writer2.Id &&
+                            n.Date >= monthAgo)
+                .Sum(n => n.Likes)
+        });
+    }
+
+    public readonly struct HomeIndexModel
+    {
+        public BetterNews HeaderNews { get; init; }
+        public List<BetterNews> News1 { get; init; }
+        public List<BetterNews> News2 { get; init; }
+        public User Writer1 { get; init; }
+        public int Likes1 { get; init; }
+        public User Writer2 { get; init; }
+        public int Likes2 { get; init; }
+
+        public readonly struct BetterNews
+        {
+            public int Id { get; init; }
+            public string Title { get; init; }
+            public string Text { get; init; }
+            public string LogoUrl { get; init; }
+            public int Likes { get; init; }
+            public DateTime Date { get; init; }
+            public User? Creator { get; init; }
+        }
     }
 
     public IActionResult Privacy() =>

@@ -17,6 +17,19 @@
     <span class="newsArticle_">
         @Model.News.Text
     </span>
+    
+    @if (Model.UserLiked)
+    {
+        <img src="img/like.png" onclick=""/>
+        <script>
+            function unlike() {
+                let xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("post", "https://localhost:5001/Back/Unlike"); 
+                //await xmlHttp.send()
+            }
+        </script>
+    }
+    
     <div class="line"></div>
     <span class="newsTitle">
         Comments

@@ -43,7 +43,7 @@ public class BackController : Controller
         _dataContext.SaveChanges();
         return Ok();
     }
-
+    
     [HttpPost, Authorize]
     public IActionResult SendComment([FromForm] Comment comment)
     {
@@ -54,12 +54,49 @@ public class BackController : Controller
     }
 
     [HttpPost, Authorize]
-    public IActionResult CreateNews([FromForm] News news)
+    public IActionResult CreateNews(News news)
     {
         if (news.Title == default || news.Text == default || news.LogoUrl == default) return BadRequest();
         news.Date = DateTime.Now;
         news.CreatorId = (HttpContext.Items["User"] as User)!.Id;
         _dataContext.News.Add(news);
+        _dataContext.SaveChanges();
+        return Ok();
+    }
+
+    [HttpPost, Authorize]
+    public IActionResult Like(int newsId)
+    {
+        var userId = (HttpContext.Items["User"] as User)!.Id;
+        if (_dataContext.Likes.Any(l => l.NewsId == newsId || l.WriterId == userId)) return BadRequest();
+        var news = _dataContext.News.FirstOrDefault(n => n.Id == newsId);
+        if (news is null) return BadRequest();
+        _dataContext.Likes.Add(new Like
+        {
+            WriterId = userId,
+            NewsId = newsId
+        });
+        ++news.Likes;
+        _dataContext.News.Update(news);
+        _dataContext.SaveChanges();
+        return Ok();
+    }
+
+    [HttpPost, Authorize]
+    public IActionResult UnLike(int newsId)
+    {
+        var userId = (HttpContext.Items["User"] as User)!.Id;
+        var like = _dataContext.Likes.FirstOrDefault(l => l.NewsId == newsId || l.WriterId == userId);
+        if (like is null) return BadRequest();
+        _dataContext.Likes.Remove(like);
+        var news = _dataContext.News.FirstOrDefault(n => n.Id == newsId);
+        if (news is null)
+        {
+            _dataContext.SaveChanges();
+            return BadRequest();
+        }
+        --news.Likes;
+        _dataContext.News.Update(news);
         _dataContext.SaveChanges();
         return Ok();
     }
