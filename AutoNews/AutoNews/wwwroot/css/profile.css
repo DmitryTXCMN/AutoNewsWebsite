@@ -60,11 +60,14 @@
 }
 
 .profileEditButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: gray;
     outline: none;
     font-size: 18px;
     font-weight: 500;
-    margin-top: 10px;
+    text-decoration: none;
     width: 200px;
     height: 25px;
 }
@@ -100,4 +103,11 @@
     font-size: 16px;
     font-weight: 300;
     resize: none;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
