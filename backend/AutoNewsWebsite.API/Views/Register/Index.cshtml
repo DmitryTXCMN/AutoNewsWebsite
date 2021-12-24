@@ -10,8 +10,12 @@
     <div class="authFormBlock">
         <form method="post" action="~/Login/Login">
             <span>Register</span>
-            <input type="text" placeholder="Login"  name="login">
-            <input type="password" placeholder="Password"  name="password">
+            <input type="text" placeholder="Login(E-Mail)"  name="login">
+            <input type="text" placeholder="Nickname"  name="nickname">
+            <input type="text" placeholder="Name Surname"  name="name_surname">
+            <input type="text" placeholder="Age"  name="age">
+            <input type="text" placeholder="AvatarURL"  name="avatarURL">
+            <input type="password" placeholder="Password"  name="password">-
             <a asp-controller="Login" asp-action="Index">Already have any profile? Click here to Log In.</a>
             <input type="submit" value="Отправить" />
         </form>
