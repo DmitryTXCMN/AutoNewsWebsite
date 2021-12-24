@@ -40,6 +40,7 @@ public class EnteringController : ControllerBase
         Expression<Func<User, bool>> searchingExpression = u => u.Login == user.Login;
         if (_dataContext.Users.Any(searchingExpression))
             throw new Exception("already registered");
+        user.AboutMe = string.Empty;
         _dataContext.Users.Add(user);
         _dataContext.SaveChanges();
         user = _dataContext.Users.First(searchingExpression);
