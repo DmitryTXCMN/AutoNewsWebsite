@@ -1,19 +1,19 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AutoNews.DB;
 
-// ReSharper disable once ClassNeverInstantiated.Global
+[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
 public class User
 {
     public int Id { get; set; }
     [Required] public string Login { get; set; }
     [Required] public string Password { get; set; }
+    [Required] public string NickName { get; set; }
     [Required] public string Name { get; set; }
-    [Required] public string Surname { get; set; }
-    [Required] public long PhoneNumber { get; set; }
-    [Required] public string AvatarURL { get; set; }
+    [Required] public int Age { get; set; }
+    [Required] public string AboutMe { get; set; }
+    [Required] public string AvatarUrl { get; set; }
     
-    [NotMapped] public string FullName => $"{Name} {Surname}";
-    public override string ToString() => $"{Login} {Password} {Name} {Surname} {PhoneNumber}";
+    public override string ToString() => $"{Login} {Password} {Name} {NickName} {Age}";
 }
