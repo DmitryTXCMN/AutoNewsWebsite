@@ -20,10 +20,19 @@
 
     <div class="likeSection">
         Liked: @Model.News.Likes
-        <button class="likeButton" role="button" aria-pressed="false" onclick="handleBtnClick(event)"
-                onKeyDown="handleBtnKeyDown(event)" type="submit">
-            Like
+        @if (!Model.UserLiked)
+        {
+            <button class="likeButton" role="button" aria-pressed="false" onclick="handleBtnClick(event)"
+                onKeyDown="handleBtnKeyDown(event)" type="submit">Like
         </button>
+        }
+        else 
+        {
+             <button class="likeButton" role="button" aria-pressed="true" onclick="handleBtnClick(event)"
+                onKeyDown="handleBtnKeyDown(event)" type="submit">Like
+        </button>
+        }
+            
         <script>
                 //click
                 function handleBtnClick(event) {
