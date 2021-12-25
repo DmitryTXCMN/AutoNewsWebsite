@@ -1,0 +1,35 @@
+﻿.findInputSpace {
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    background-color: #252525;
+}
+
+.findInput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 5px;
+    width: 90%;
+    font-size: 24px;
+    line-height: 28px;
+    outline: none;
+    border: none;
+}
+
+.findButton {
+    width: 10%;
+    border: none;
+    border-left: solid 1px black;
+    outline: none;
+    background-color: rgb(155, 155, 155);
+}
+
+    .findButton:hover {
+        background-color: rgb(192, 192, 192);
+    }
+
+.findButtonImg {
+    width: 18px;
+    height: 18px;
+}

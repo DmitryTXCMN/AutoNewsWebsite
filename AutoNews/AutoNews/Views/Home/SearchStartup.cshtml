@@ -1,0 +1,17 @@
+﻿@using static AutoNews.Controllers.HomeController.HomeIndexModel
+@model System.Linq.IQueryable<IQueryable<BetterNews>>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/search.css">
+    <div class="mainPageBody">
+        <form class="findInputSpace" action="https://localhost:5001/Home/Search">
+            <input name="searchRequest" class="findInput">
+            <button class="findButton" type="submit">
+                <img class="findButtonImg" src="http://cdn.onlinewebfonts.com/svg/img_416406.png">
+            </button>
+        </form>
+    </div>

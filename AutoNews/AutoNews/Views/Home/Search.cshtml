@@ -1,8 +1,43 @@
-﻿@model System.Linq.IQueryable<AutoNews.DB.News>
+﻿@using static AutoNews.Controllers.HomeController.HomeIndexModel
+@model System.Linq.IQueryable<IQueryable<BetterNews>>
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<link rel="stylesheet" href="css/search.css">
+    <div class="mainPageBody">
+        @foreach (var block in Model)
+        {
+            <div class="newsBlock">
+                @foreach (var news in block)
+                {
+                    <a href="https://localhost:5001/news?newsid=@news.Id" class="elementNews">
+                        <div class="newsElementContainer">
+                            <img src="@news.LogoUrl" alt="newsImage"
+                                 width="100%" height="300px">
+                            <div class="newsImageShadowSmall"></div>
+                            <div class="newsTopicSmall">
+                                @news.Title
+                            </div>
+                            <span class="newsCreatorSmall">
+                                @news.Date.ToString("d") - @news.Creator?.NickName
+                            </span>
+                        </div>
+                        <div class="newsArticle">
+                            <span class="newsArticleSpan">
+                                @news.Text
+                            </span>
+                            <div class="newsTopicCreatorInfo">
+                                <img alt="avatar" class="newsAvatar" src="@news.Creator?.AvatarUrl" width="100%" height="100%"/>
+                                <span style="font-weight: 700;">
+                                    @news.Creator?.NickName
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+    </div>

@@ -107,12 +107,31 @@ public class HomeController : Controller
     public IActionResult AboutUs() =>
         View();
 
+    public IActionResult SearchStartup() =>
+       View();
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error() =>
         View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
 
-    public IActionResult Search(string searchRequest) => 
-        View(_dataContext.News.Where(n => n.Title.Contains(searchRequest)));
+    public IActionResult Search(string searchRequest)
+    {
+        var news = _dataContext.News.Where(n => n.Title.Contains(searchRequest))
+            .Select(n => new HomeIndexModel.BetterNews
+        {
+            Id = n.Id,
+            Title = n.Title,
+            Text = n.Text,
+            LogoUrl = n.LogoUrl,
+            Likes = n.Likes,
+            Date = n.Date,
+            Creator = _dataContext.Users.FirstOrDefault(u => u.Id == n.CreatorId)
+        }).ToList(); 
+        var newsBlock = new List<List<HomeIndexModel.BetterNews>>();
+        for (var i = 1; i < news.Count; i += 4)
+            newsBlock.Add(news.Skip(i).Take(Math.Min(4, news.Count - 1)).ToList());
+        return View(newsBlock);
+    }
 
     public IActionResult Users() => View(_dataContext.Users);
 }
