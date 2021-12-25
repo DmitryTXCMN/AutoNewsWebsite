@@ -44,40 +44,42 @@ public class HomeController : Controller
                 .Sum(n => n.Likes))
             .FirstOrDefault();
 
-        var model = new HomeIndexModel();
-        model.HeaderNews = news.Count != default ? news.FirstOrDefault() : null;
-        model.News1 = news.Count > 1
-            ? news.Skip(1).Take(Math.Min(4, news.Count - 1)).ToList()
-            : new List<HomeIndexModel.BetterNews>();
-        model.News2 = news.Count > 5
-            ? news.Skip(5).Take(Math.Min(4, news.Count - 1)).ToList()
-            : new List<HomeIndexModel.BetterNews>();
-        model.Writer1 = writer1;
-        model.Writer2 = writer2;
-        model.Likes1 = writer1 is not null
-            ? _dataContext.News
-                .Where(n => n.CreatorId == writer1.Id &&
-                            n.Date >= twoMonthsAgo && n.Date < monthAgo)
-                .Sum(n => n.Likes)
-            : null;
-        model.Likes2 = writer2 is not null
-            ? _dataContext.News
-                .Where(n => n.CreatorId == writer2.Id &&
-                            n.Date >= monthAgo)
-                .Sum(n => n.Likes)
-            : null;
+        var model = new HomeIndexModel
+        {
+            HeaderNews = news.Count != default ? news.FirstOrDefault() : null,
+            News1 = news.Count > 1
+                ? news.Skip(1).Take(Math.Min(4, news.Count - 1)).ToList()
+                : new List<HomeIndexModel.BetterNews>(),
+            News2 = news.Count > 5
+                ? news.Skip(5).Take(Math.Min(4, news.Count - 1)).ToList()
+                : new List<HomeIndexModel.BetterNews>(),
+            Writer1 = writer1,
+            Writer2 = writer2,
+            Likes1 = writer1 is not null
+                ? _dataContext.News
+                    .Where(n => n.CreatorId == writer1.Id &&
+                                n.Date >= twoMonthsAgo && n.Date < monthAgo)
+                    .Sum(n => n.Likes)
+                : null,
+            Likes2 = writer2 is not null
+                ? _dataContext.News
+                    .Where(n => n.CreatorId == writer2.Id &&
+                                n.Date >= monthAgo)
+                    .Sum(n => n.Likes)
+                : null
+        };
         return View(model);
     }
 
-    public struct HomeIndexModel
+    public readonly struct HomeIndexModel
     {
-        public BetterNews? HeaderNews { get; set; }
-        public List<BetterNews> News1 { get; set; }
-        public List<BetterNews> News2 { get; set; }
-        public User? Writer1 { get; set; }
-        public int? Likes1 { get; set; }
-        public User? Writer2 { get; set; }
-        public int? Likes2 { get; set; }
+        public BetterNews? HeaderNews { get; init; }
+        public List<BetterNews> News1 { get; init; }
+        public List<BetterNews> News2 { get; init; }
+        public User? Writer1 { get; init; }
+        public int? Likes1 { get; init; }
+        public User? Writer2 { get; init; }
+        public int? Likes2 { get; init; }
 
         public readonly struct BetterNews
         {
