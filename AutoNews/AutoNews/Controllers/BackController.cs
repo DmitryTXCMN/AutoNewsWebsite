@@ -54,12 +54,18 @@ public class BackController : Controller
     }
 
     [HttpPost, Authorize]
-    public IActionResult CreateNews(News news)
+    public IActionResult CreateNews(string title, string text, string logoUrl)
     {
-        if (news.Title == default || news.Text == default || news.LogoUrl == default) return BadRequest();
-        news.Date = DateTime.Now;
-        news.CreatorId = (HttpContext.Items["User"] as User)!.Id;
-        _dataContext.News.Add(news);
+        if (title == default || text == default || logoUrl == default) return BadRequest();
+        _dataContext.News.Add(new News
+        {
+            Title = title,
+            Text = text,
+            LogoUrl = logoUrl,
+            Likes = 0,
+            Date = DateTime.Now,
+            CreatorId = (HttpContext.Items["User"] as User)!.Id
+        });
         _dataContext.SaveChanges();
         return Ok();
     }
