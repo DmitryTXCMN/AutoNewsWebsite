@@ -17,7 +17,8 @@
         </div>
     </a>
     <div class="newsBlock">
-        @foreach (var news in Model.News1)
+        @if (Model.NewsBlocks.Count() != 0)
+        foreach (var news in Model.NewsBlocks[0])
         {
             <a href="https://localhost:5001/news?newsid=@news.Id" class="elementNews">
                 <div class="newsElementContainer">
@@ -27,6 +28,9 @@
                     <div class="newsTopicSmall">
                         @news.Title
                     </div>
+                    <span class="newsCreatorSmall">
+                        @news.Date.ToString("d") - @news.Creator?.NickName
+                    </span>
                 </div>
                 <div class="newsArticle">
                     <span class="newsArticleSpan">
@@ -72,8 +76,10 @@
                 </div>
             </div>
         </div>
+        @foreach (var block in Model.NewsBlocks.Skip(1))
+        {
         <div class="newsBlock">
-         @foreach (var news in Model.News2)
+         @foreach (var news in block)
         {
             <a href="https://localhost:5001/news?newsid=@news.Id" class="elementNews">
                 <div class="newsElementContainer">
@@ -83,6 +89,9 @@
                     <div class="newsTopicSmall">
                         @news.Title
                     </div>
+                    <span class="newsCreatorSmall">
+                        @news.Date.ToString("d") - @news.Creator?.NickName
+                    </span>
                 </div>
                 <div class="newsArticle">
                     <span class="newsArticleSpan">
@@ -98,4 +107,5 @@
             </a>
         }
         </div>
+        }
     </div>

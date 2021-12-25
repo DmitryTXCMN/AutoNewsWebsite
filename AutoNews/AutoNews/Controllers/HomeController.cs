@@ -44,9 +44,16 @@ public class HomeController : Controller
                 .Sum(n => n.Likes))
             .FirstOrDefault();
 
+        var newsblock = new List<List<HomeIndexModel.BetterNews>>();
+        for (int i = 1; i < news.Count(); i = i + 4) 
+        {
+            newsblock.Add(news.Skip(i).Take(Math.Min(4, news.Count - 1)).ToList());
+        }
+
         var model = new HomeIndexModel
         {
             HeaderNews = news.Count != default ? news.FirstOrDefault() : null,
+            NewsBlocks = newsblock,
             News1 = news.Count > 1
                 ? news.Skip(1).Take(Math.Min(4, news.Count - 1)).ToList()
                 : new List<HomeIndexModel.BetterNews>(),
@@ -74,6 +81,7 @@ public class HomeController : Controller
     public readonly struct HomeIndexModel
     {
         public BetterNews? HeaderNews { get; init; }
+        public List<List<BetterNews>> NewsBlocks { get; init; }
         public List<BetterNews> News1 { get; init; }
         public List<BetterNews> News2 { get; init; }
         public User? Writer1 { get; init; }
@@ -97,6 +105,8 @@ public class HomeController : Controller
         View();
 
     public IActionResult Contacts() =>
+        View();
+    public IActionResult AboutUs() =>
         View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
