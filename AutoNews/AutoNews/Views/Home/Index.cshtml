@@ -6,13 +6,13 @@
 
 <link rel="stylesheet" href="~/css/newsStyles.css">
 <div class="mainPageBody">
-    <a href="https://localhost:5001/news?newsid=@Model.HeaderNews.Id" class="mainNews">
+    <a href="https://localhost:5001/news?newsid=@Model.HeaderNews?.Id" class="mainNews">
         <div class="newsElementContainer">
-            <img src="@Model.HeaderNews.LogoUrl" alt="newsImage"
+            <img src="@Model.HeaderNews?.LogoUrl" alt="newsImage"
                  width="100%" height="600px">
             <div class="newsImageShadowLarge"></div>
             <div class="newsTopicLarge">
-                @Model.HeaderNews.Title
+                @Model.HeaderNews?.Title
             </div>
         </div>
     </a>
@@ -45,9 +45,9 @@
             <div class="bestWriterBlock">
                 Writer of this month:
                 <div class="writerInfo">
-                    <img alt="avatar" class="avatar" src="@Model.Writer2.AvatarUrl"/>
+                    <img alt="avatar" class="avatar" src="@Model.Writer2?.AvatarUrl"/>
                     <span style="font-weight: 500;">
-                        @Model.Writer2.Name
+                        @Model.Writer2?.Name
                     </span>
                     <img alt="likeLogo" class="likesCount" src="~/img/like.png">
                     <span style="font-weight: 470;">
@@ -60,9 +60,9 @@
             <div class="bestWriterBlock">
                 Writer of the previous month:
                 <div class="writerInfo">
-                    <img alt="avatar" class="avatar" src="@Model.Writer1.AvatarUrl"/>
+                    <img alt="avatar" class="avatar" src="@Model.Writer1?.AvatarUrl"/>
                     <span style="font-weight: 500;">
-                        @Model.Writer1.Name
+                        @Model.Writer1?.Name
                     </span>
                     <img alt="likeLogo" class="likesCount" src="~/img/like.png">
                     <span style="font-weight: 470;">
