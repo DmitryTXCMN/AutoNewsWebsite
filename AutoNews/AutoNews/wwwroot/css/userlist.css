@@ -1,0 +1,27 @@
+﻿.userlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.userblock {
+    background-color: #252525;
+    height: 100px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+    .userblock:hover {
+        background-color: #474747;
+    }
+
+.userAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
