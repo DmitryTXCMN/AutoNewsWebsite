@@ -18,16 +18,37 @@
         @Model.News.Text
     </span>
     
-    @if (Model.UserLiked)
+    @if (!Model.UserLiked)
     {
-        <img src="img/like.png" onclick=""/>
-        <script>
-            function unlike() {
-                let xmlHttp = new XMLHttpRequest();
-                xmlHttp.open("post", "https://localhost:5001/Back/Unlike"); 
-                //await xmlHttp.send()
-            }
-        </script>
+        <div class="likeSection">
+            Liked: count
+            <button class="likeButton" role="button" aria-pressed="false" onclick="handleBtnClick(event)"
+                onKeyDown="handleBtnKeyDown(event)" type="submit">Like</button>
+            <script>
+                //click
+                function handleBtnClick(event) {
+                    toggleButton(event.target);
+                }
+                //кнопка нажата
+                function handleBtnKeyDown(event) {
+                    if (event.key === " " || event.key === "Enter" || event.key === "Spacebar") {
+                        event.preventDefault();
+                        toggleButton(event.target);
+                    }
+                }
+
+                function toggleButton(element) {
+                    var audio = document.getElementById('audio');
+                    var pressed = (element.getAttribute("aria-pressed") === "true");
+                    element.setAttribute("aria-pressed", !pressed);
+                    if (pressed) {
+                        audio.pause();
+                    } else {
+                        audio.play();
+                    }
+                }
+            </script>
+        </div>
     }
     
     <div class="line"></div>
@@ -51,7 +72,7 @@
                 {
                     <form id="deleteComment@(comment.Id)">
                         <input type="hidden" name="commentId" value="@comment.Id"/>
-                        <button class="deleteComment" type="submit">x</button>
+                        <button class="deleteComment" type="submit">X</button>
                     </form>
                     <script>
                                             deleteComment@(comment.Id).onsubmit = async (e) => {

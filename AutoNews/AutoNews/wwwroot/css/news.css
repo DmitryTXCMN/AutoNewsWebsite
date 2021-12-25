@@ -97,7 +97,7 @@
 
 .commentText {
     height: auto;
-    width: 90%;
+    width: 100%;
     padding: 0 55px;
     padding-bottom: 20px;
     border-bottom: solid 1px rgb(100, 100, 100);
@@ -108,8 +108,8 @@
     display: flex;
     top: 0;
     right: 50px;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     width: 15px;
     height: 15px;
     align-items: center;
@@ -118,9 +118,9 @@
     border: none;
 }
 
-    .deleteComment:hover {
-        background-color: rgb(160, 0, 0);
-    }
+.deleteComment:hover {
+    background-color: rgb(160, 0, 0);
+}
 
 .sendComment {
     padding: 0 50px;
@@ -140,6 +140,9 @@
 }
 
 .sendCommentButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: gray;
     outline: none;
     font-size: 18px;
@@ -209,4 +212,37 @@
     display: flex;
     flex-direction: row;
     column-gap: 20px;
+}
+
+.likeSection {
+    align-self: flex-end;
+    font-weight: 500;
+    font-style: normal;
+    column-gap: 20px;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    color: #FFFFFF;
+    display: flex;
+    margin-right: 90px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.likeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    width: 200px;
+    height: 25px;
+}
+
+[role="button"][aria-pressed="true"] {
+    background-color: rgb(45, 145, 45);
 }
