@@ -30,7 +30,7 @@
         {
              <button class="likeButton" role="button" aria-pressed="true" onclick="handleBtnClick(event)"
                 onKeyDown="handleBtnKeyDown(event)" type="submit">Like
-        </button>
+            </button>
         }
             
         <script>
@@ -58,6 +58,7 @@
                         xmlHttp.open("post", "https://localhost:5001/Back/UnLike?newsId=@Model.News.Id"); 
                         await xmlHttp.send();
                     }
+                    setTimeout(function(){ location.reload()}, 100);
                 }
             </script>
     </div>

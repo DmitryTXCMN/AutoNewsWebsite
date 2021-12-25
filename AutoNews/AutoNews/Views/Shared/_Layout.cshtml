@@ -32,7 +32,7 @@
             <a class="headerElement" asp-controller="Home" asp-action="Contacts">
                 Contacts
             </a>
-            @if (Context.Items["User"] is null)
+            @if (Context.Items["User"] is not null)
             {
                     <a class="headerElement" asp-controller="News" asp-action="Create">
                         Create news

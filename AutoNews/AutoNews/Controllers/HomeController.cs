@@ -20,7 +20,7 @@ public class HomeController : Controller
 
         var news = _dataContext.News
             .Where(n => n.Date > monthAgo)
-            .OrderBy(n => n.Likes)
+            .OrderBy(n => -n.Likes)
             .Select(n => new HomeIndexModel.BetterNews
             {
                 Id = n.Id,
