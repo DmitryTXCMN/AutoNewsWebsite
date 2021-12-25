@@ -23,7 +23,7 @@
                     <textarea class="profileAboutInput" name="AboutMe">@Model.AboutMe</textarea>
                 </div>
                 <div class="profileEditButtons">
-                    <button class="profileEditButton" type="submit" onclick="document.location.href='localhost:5001'">Cancel</button>
+                    <button class="profileEditButton" type="reset" onclick="document.location.href='https://localhost:5001/Profile'">Cancel</button>
                     <button class="profileEditButton" type="submit">Save</button>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                             method: 'POST',
                             body: new FormData(profileEditForm)
                         });
-                        location.reload();
+                        document.location.href='https://localhost:5001/Profile';
                     };
         </script>
     </div>

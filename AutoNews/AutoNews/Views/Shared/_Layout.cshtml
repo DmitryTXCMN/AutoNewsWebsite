@@ -47,7 +47,7 @@
                 @if (Context.Items["User"] is User user)
                 {
                     <a asp-controller="Profile" asp-action="Index">
-                        <img class="avatarHeader" src="@user.AvatarUrl" alt="Finder1383">
+                        <img class="avatarHeader" src="@user.AvatarUrl" alt="avatar">
                     </a>
                 }
                 @if (Context.Items["User"] is null)
