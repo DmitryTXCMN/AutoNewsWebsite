@@ -102,4 +102,9 @@ public class HomeController : Controller
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error() =>
         View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+
+    public IActionResult Search(string searchRequest) => 
+        View(_dataContext.News.Where(n => n.Title.Contains(searchRequest)));
+
+    public IActionResult Users() => View(_dataContext.Users);
 }
