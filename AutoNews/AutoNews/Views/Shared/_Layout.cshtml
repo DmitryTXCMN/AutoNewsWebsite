@@ -32,9 +32,12 @@
             <a class="headerElement" asp-controller="Home" asp-action="Contacts">
                 Contacts
             </a>
-            <a class="headerElement" asp-controller="News" asp-action="Create">
-                Create news
-            </a>
+            @if (Context.Items["User"] is null)
+            {
+                    <a class="headerElement" asp-controller="News" asp-action="Create">
+                        Create news
+                    </a>
+            }
 
 
         </div>
