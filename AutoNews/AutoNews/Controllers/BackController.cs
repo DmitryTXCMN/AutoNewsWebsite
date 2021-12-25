@@ -102,11 +102,7 @@ public class BackController : Controller
             if (like is null) return BadRequest();
             _dataContext.Likes.Remove(like);
             var news = _dataContext.News.FirstOrDefault(n => n.Id == newsId);
-            if (news is null)
-            {
-                _dataContext.SaveChanges();
-                return BadRequest();
-            }
+            if (news is null) return BadRequest();
 
             --news.Likes;
             _dataContext.News.Update(news);
