@@ -1,4 +1,4 @@
-@model AutoNews.DB.User
+@model AutoNews.Controllers.ProfileController.ProfileModel
 
 @{
     ViewBag.Title = "title";
@@ -7,24 +7,27 @@
 
 <link rel="stylesheet" href="~/css/profile.css">
 <div class="profilePageBody">
-    <img src="@Model.AvatarUrl" class="profileAvatar">
+    <img src="@Model.User?.AvatarUrl" class="profileAvatar">
     <div class="profileInfo">
-        <span class="nickname">@Model.NickName</span>
+        <span class="nickname">@Model.User?.NickName</span>
         <div class="profileUserInfo">
-            <span class="profileName">Name: <span class="profileNameSpan">@Model.Name</span></span>
-            <span class="profileName">Age: <span class="profileNameSpan">@Model.Age</span></span>
-            <span class="profileName">E-Mail: <span class="profileNameSpan">@Model.Login</span></span>
+            <span class="profileName">Name: <span class="profileNameSpan">@Model.User?.Name</span></span>
+            <span class="profileName">Age: <span class="profileNameSpan">@Model.User?.Age</span></span>
+            <span class="profileName">E-Mail: <span class="profileNameSpan">@Model.User?.Login</span></span>
             <div class="profileAbout">
                 <span>About me:</span>
                 <span class="profileAboutSpan">
-                    @Model.AboutMe
+                    @Model.User?.AboutMe
                 </span>
             </div>
-            <div class="profileEditButtons">
-                <a class="buttonContainer" asp-controller="Profile" asp-action="Edit">
-                    <button class="profileEditButton" type="submit">Edit</button>
-                </a>
-            </div>
+            @if (Model.Edit)
+            {
+                <div class="profileEditButtons">
+                    <a class="buttonContainer" asp-controller="Profile" asp-action="Edit">
+                        <button class="profileEditButton" type="submit">Edit</button>
+                    </a>
+                </div>
+            }
         </div>
     </div>
 </div>

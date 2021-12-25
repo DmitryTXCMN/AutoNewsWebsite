@@ -34,26 +34,24 @@ public class HomeController : Controller
             .ToList();
 
         var writer1 = _dataContext.Users
-            .OrderBy(u => _dataContext.News
+            .OrderBy(u => -_dataContext.News
                 .Where(n => n.CreatorId == u.Id && n.Date >= twoMonthsAgo && n.Date < monthAgo)
                 .Sum(n => n.Likes))
             .FirstOrDefault();
         var writer2 = _dataContext.Users
-            .OrderBy(u => _dataContext.News
+            .OrderBy(u => -_dataContext.News
                 .Where(n => n.CreatorId == u.Id && n.Date >= monthAgo)
                 .Sum(n => n.Likes))
             .FirstOrDefault();
 
-        var newsblock = new List<List<HomeIndexModel.BetterNews>>();
-        for (int i = 1; i < news.Count(); i = i + 4) 
-        {
-            newsblock.Add(news.Skip(i).Take(Math.Min(4, news.Count - 1)).ToList());
-        }
+        var newsBlock = new List<List<HomeIndexModel.BetterNews>>();
+        for (var i = 1; i < news.Count; i += 4)
+            newsBlock.Add(news.Skip(i).Take(Math.Min(4, news.Count - 1)).ToList());
 
         var model = new HomeIndexModel
         {
             HeaderNews = news.Count != default ? news.FirstOrDefault() : null,
-            NewsBlocks = newsblock,
+            NewsBlocks = newsBlock,
             News1 = news.Count > 1
                 ? news.Skip(1).Take(Math.Min(4, news.Count - 1)).ToList()
                 : new List<HomeIndexModel.BetterNews>(),
