@@ -5,14 +5,15 @@
     Layout = "_Layout";
 }
 
-<link rel="stylesheet" href="css/userlist.css">
+<link rel="stylesheet" href="~/css/userlist.css">
+    <span class="userlistTitle">User List:</span>
     <div class="userlist">
-        @foreach ()
+        @foreach (var user in Model)
         {
-            <a class="userblock">
-                <img src="avatar"
+            <a class="userblock" href="https://localhost:5001/Profile?userId=@user.Id">
+                <img src="@user.AvatarUrl"
                     alt="userAvatar" class='userAvatar'>
-                nickname
+                @user.NickName
             </a>
         }
     </div>
