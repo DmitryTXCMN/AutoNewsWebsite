@@ -68,7 +68,7 @@ public class BackController : Controller
     public IActionResult Like(int newsId)
     {
         var userId = (HttpContext.Items["User"] as User)!.Id;
-        if (_dataContext.Likes.Any(l => l.NewsId == newsId || l.WriterId == userId)) return BadRequest();
+        if (_dataContext.Likes.Any(l => l.NewsId == newsId && l.WriterId == userId)) return BadRequest();
         var news = _dataContext.News.FirstOrDefault(n => n.Id == newsId);
         if (news is null) return BadRequest();
         _dataContext.Likes.Add(new Like
