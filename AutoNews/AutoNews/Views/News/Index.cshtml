@@ -87,13 +87,15 @@
             </div>
         }
 
-        <form id="sendCommentForm" class="sendComment">
-            <input type="hidden" name="newsId" value="@Model.News.Id"/>
-            <input type="hidden" name="writerId" value="@Model.User?.Id"/>
-            <textarea name="text" class="sendCommentInput" placeholder="Comment..."></textarea>
-            <button class="sendCommentButton" type="submit">Send</button>
-        </form>
-        <script>
+        @if (Model.User is not null)
+        {
+            <form id="sendCommentForm" class="sendComment">
+                <input type="hidden" name="newsId" value="@Model.News.Id"/>
+                <input type="hidden" name="writerId" value="@Model.User?.Id"/>
+                <textarea name="text" class="sendCommentInput" placeholder="Comment..."></textarea>
+                <button class="sendCommentButton" type="submit">Send</button>
+            </form>
+            <script>
                     sendCommentForm.onsubmit = async (e) => {
                         e.preventDefault();
                         await fetch('https://localhost:5001/Back/SendComment', {
@@ -103,5 +105,6 @@
                         location.reload();
                     };
             </script>
+        }
     </div>
 </div>
