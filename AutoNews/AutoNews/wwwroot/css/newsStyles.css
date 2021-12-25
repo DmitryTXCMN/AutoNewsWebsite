@@ -94,7 +94,7 @@ a:hover {
     justify-content: flex-end;
     align-items: center;
     column-gap: 5px;
-    margin: 10px 10px 0 0;
+    margin-right: 10px;
 }
 
 .newsAvatar{
@@ -106,7 +106,7 @@ a:hover {
 .newsArticleSpan {
     display: inline-block;
     text-overflow: ellipsis;    
-    max-height: 145px;
+    max-height: 155px;
     overflow: hidden;
 }
 
