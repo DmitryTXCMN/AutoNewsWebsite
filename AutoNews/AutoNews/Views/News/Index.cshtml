@@ -17,14 +17,14 @@
     <span class="newsArticle_">
         @Model.News.Text
     </span>
-    
-    @if (!Model.UserLiked)
-    {
-        <div class="likeSection">
-            Liked: count
-            <button class="likeButton" role="button" aria-pressed="false" onclick="handleBtnClick(event)"
-                onKeyDown="handleBtnKeyDown(event)" type="submit">Like</button>
-            <script>
+
+    <div class="likeSection">
+        Liked: @Model.News.Likes
+        <button class="likeButton" role="button" aria-pressed="false" onclick="handleBtnClick(event)"
+                onKeyDown="handleBtnKeyDown(event)" type="submit">
+            Like
+        </button>
+        <script>
                 //click
                 function handleBtnClick(event) {
                     toggleButton(event.target);
@@ -37,20 +37,23 @@
                     }
                 }
 
-                function toggleButton(element) {
-                    var audio = document.getElementById('audio');
+                async function toggleButton(element) {
                     var pressed = (element.getAttribute("aria-pressed") === "true");
                     element.setAttribute("aria-pressed", !pressed);
-                    if (pressed) {
-                        audio.pause();
+                    if (!pressed) {
+                        let xmlHttp = new XMLHttpRequest();
+                        xmlHttp.open("post", "https://localhost:5001/Back/Like?newsId=@Model.News.Id"); 
+                        await xmlHttp.send();
                     } else {
-                        audio.play();
+                        let xmlHttp = new XMLHttpRequest();
+                        xmlHttp.open("post", "https://localhost:5001/Back/UnLike?newsId=@Model.News.Id"); 
+                        await xmlHttp.send();
                     }
                 }
             </script>
-        </div>
-    }
-    
+    </div>
+
+
     <div class="line"></div>
     <span class="newsTitle">
         Comments
