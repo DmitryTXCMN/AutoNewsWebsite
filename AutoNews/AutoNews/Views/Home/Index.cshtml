@@ -41,7 +41,8 @@
                 </div>
             </a>
         }
-        <div class="commentSection">
+    </div>
+         <div class="commentSection">
             <div class="bestWriterBlock">
                 Writer of this month:
                 <div class="writerInfo">
@@ -71,7 +72,8 @@
                 </div>
             </div>
         </div>
-        @foreach (var news in Model.News2)
+        <div class="newsBlock">
+         @foreach (var news in Model.News2)
         {
             <a href="https://localhost:5001/news?newsid=@news.Id" class="elementNews">
                 <div class="newsElementContainer">
@@ -95,5 +97,5 @@
                 </div>
             </a>
         }
+        </div>
     </div>
-</div>

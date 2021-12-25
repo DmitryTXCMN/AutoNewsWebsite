@@ -29,6 +29,8 @@
             </div>
         </form>
         <script>
+                    profileEditForm.onreset
+
                     profileEditForm.onsubmit = async (e) => {
                         e.preventDefault();
                         await fetch('https://localhost:5001/Back/EditProfile', {

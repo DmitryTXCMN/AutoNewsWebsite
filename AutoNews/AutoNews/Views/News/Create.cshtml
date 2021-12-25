@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="~/css/news.css">
 <div class="newsPageBody">
     <form class="createNews" id="createNewsForm">
-        <input type="hidden" name="likes" value="0"/>
         ImageURL:
         <input name="LogoUrl" class="createInput" type="text">
         News title:
@@ -14,8 +13,8 @@
         News article:
         <textarea name="Text" type="text" class="createInputArticle"></textarea>
         <div class="profileEditButtons">
-            <button class="profileEditButton" type="submit">Cancel</button>
-            <button class="profileEditButton" onclick="location.reload()">Create</button>
+            <button class="profileEditButton" onclick="location.reload()" type="reset">Cancel</button>
+            <button class="profileEditButton" type="submit">Create</button>
         </div>
     </form>
     <script>
@@ -25,7 +24,6 @@
                             method: 'POST',
                             body: new FormData(createNewsForm)
                         });
-                        setTimeout(function(){ location.reload()}, 100);
                     };
     </script>
 </div>
